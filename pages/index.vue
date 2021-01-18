@@ -3,6 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">signal</h1>
+      <h2 class="subtitle">A Keyboard Store</h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
