@@ -3,12 +3,12 @@ export default {
   head: {
     title: 'signal',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'zh-TW',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Signal, a kayboard store' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -26,16 +26,23 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/composition-api',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  // BootstrapVue module configuration: https://bootstrap-vue.org/docs
+  BootstrapVue: {
+    icons: true
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
