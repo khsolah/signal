@@ -12,6 +12,8 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  // loading: loading bar on top
+  loading: { color: 'palevioletred', height: '1.5px', duration: 5000 },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
