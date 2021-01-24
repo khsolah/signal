@@ -41,7 +41,7 @@ import {
   BIconPersonCircle,
   BIconList,
 } from 'bootstrap-vue'
-import SideBar from '@/components/Header/sidebar'
+import SideBar from '@/components/Base/sidebar'
 
 export default defineComponent({
   name: 'Header',
