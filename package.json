@@ -16,12 +16,15 @@
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/composition-api": "^0.18.1",
     "@types/jest": "^26.0.20",
+    "@types/swiper": "^5.4.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.2",
     "node-sass": "^5.0.0",
     "nuxt": "^2.14.12",
     "nuxt-start": "^2.14.12",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "swiper": "^5.4",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
