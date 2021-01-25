@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="swiper__container">
     <client-only>
       <!-- this component will only be rendered on client-side -->
       <swiper
@@ -140,10 +140,22 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .swiper {
+  &__container {
+    position: relative;
+
+    @media only screen and (max-width: 576px) {
+      margin-bottom: 11rem;
+    }
+  }
+
   &__image {
     width: 100vw;
-    height: 45vw;
+    height: 35rem;
     object-fit: cover;
+
+    @media only screen and (max-width: 768px) {
+      height: 58vw;
+    }
   }
 
   &__cta {
@@ -153,26 +165,23 @@ export default defineComponent({
     z-index: 1;
 
     &--left {
-      top: 35vw;
-      left: 2vw;
+      bottom: 3vw;
+      left: 2rem;
     }
 
     &--right {
-      top: 35vw;
-      right: 2vw;
+      bottom: 3vw;
+      right: 2rem;
     }
 
     @media only screen and (max-width: 768px) {
-      &--left,
-      &--right {
-        top: 30vw;
-      }
+      bottom: 2vw;
     }
 
     @media only screen and (max-width: 576px) {
-      position: relative;
+      position: absolute;
       display: block;
-      top: 0;
+      bottom: -11rem;
       right: 0;
       left: 0;
       color: black;
