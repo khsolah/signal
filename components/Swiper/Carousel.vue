@@ -45,7 +45,7 @@ export default defineComponent({
   setup(props, root) {
     const swiperOptions: SwiperOptions = {
       loop: true,
-      effect: 'fade',
+      // effect: 'fade',
       autoplay: {
         delay: 3000,
       },
