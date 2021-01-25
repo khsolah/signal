@@ -13,7 +13,7 @@
 
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
 
       <!-- but product button -->
@@ -45,7 +45,10 @@ export default defineComponent({
   setup(props, root) {
     const swiperOptions: SwiperOptions = {
       loop: true,
-      // effect: 'fade',
+      effect: 'fade',
+      autoplay: {
+        delay: 3000,
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
