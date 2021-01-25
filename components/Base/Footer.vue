@@ -1,11 +1,11 @@
 <template>
   <footer class="footer__container px-3">
     <b-row>
-      <b-col :cols="6" :sm="12" :md="12">
+      <b-col :cols="12" :xs="12" :sm="12" :md="6">
         <b-card tag="div" class="footer__card" title="Menu"></b-card>
       </b-col>
 
-      <b-col :cols="6" :sm="12" :md="12">
+      <b-col :cols="12" :xs="12" :sm="12" :md="6">
         <b-card tag="div" class="footer__card" title="Follow Us">
           <b-button variant="outline" class="px-2 social__button">
             <b-icon icon="facebook" variant="light"></b-icon>
