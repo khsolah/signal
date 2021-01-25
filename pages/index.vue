@@ -2,6 +2,7 @@
   <div>
     <Header />
     <Carousel />
+    <Footer />
   </div>
 </template>
 
