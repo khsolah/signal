@@ -6,3 +6,31 @@ a {
     color: #8096a480;
   }
 }
+
+body {
+  font-size: 16px;
+
+  @media only screen and (max-width: 360px) {
+    font-size: 4vw;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 3.5vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 3vw;
+  }
+
+  @media only screen and (max-width: 998px) {
+    font-size: 2.25vw;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    font-size: 1.1vw;
+  }
+
+  @media only scree and (min-width: 1440px) {
+    font-size: 14px;
+  }
+}
