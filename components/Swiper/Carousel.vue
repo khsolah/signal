@@ -6,6 +6,8 @@
         :options="swiperOptions"
         ref="swiper"
         @slideChange="handleSlideChange"
+        @slideChangeTransitionStart="slideChangeTransitionStart"
+        @slideChangeTransitionEnd="slideChangeTransitionEnd"
       >
         <swiper-slide v-for="item in banner" :key="item.name">
           <img :src="item.image" alt="" class="swiper__image" />
@@ -17,11 +19,13 @@
       </swiper>
 
       <!-- but product button -->
-      <div :class="ctaClass">
-        <h1>{{ banner[realIndex].title }}</h1>
-        <p>{{ banner[realIndex].subtitle }}</p>
-        <b-button class="swiper__cta--btn" variant="primary">{{ banner[realIndex].ctaText }}</b-button>
-      </div>
+      <transition name="fade">
+        <div :class="ctaClass" v-show="fadeIn">
+          <h1>{{ banner[realIndex].title }}</h1>
+          <p>{{ banner[realIndex].subtitle }}</p>
+          <b-button class="swiper__cta--btn" variant="primary">{{ banner[realIndex].ctaText }}</b-button>
+        </div>
+      </transition>
     </client-only>
   </div>
 </template>
@@ -44,10 +48,11 @@ export default defineComponent({
   name: 'Carousel',
   setup(props, root) {
     const swiperOptions: SwiperOptions = {
+      speed: 500,
       loop: true,
       // effect: 'fade',
       autoplay: {
-        delay: 3000,
+        delay: 4000,
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -99,7 +104,7 @@ export default defineComponent({
     const ctaClass = ref('')
     const $swiper = computed(() => swiper.value?.$swiper as SwiperClass)
 
-    const handleSlideChange = () => {
+    const handleSlideChange = async () => {
       realIndex.value = $swiper.value.realIndex
       ctaClass.value = banner[realIndex.value].buttonPosition === 'left' ? 'swiper__cta swiper__cta--left' : 'swiper__cta swiper__cta--right'
     }
@@ -108,9 +113,20 @@ export default defineComponent({
       await root.root.$nextTick()
       realIndex.value = $swiper.value.realIndex
       ctaClass.value = banner[realIndex.value].buttonPosition === 'left' ? 'swiper__cta swiper__cta--left' : 'swiper__cta swiper__cta--right'
+      fadeIn.value = true
     })
 
-    return { swiperOptions, banner, swiper, realIndex, handleSlideChange, ctaClass }
+    // fadeIn transition
+    const fadeIn = ref(false)
+    const slideChangeTransitionStart = () => {
+      fadeIn.value = false
+    }
+
+    const slideChangeTransitionEnd = () => {
+      fadeIn.value = true
+    }
+
+    return { swiperOptions, banner, swiper, realIndex, handleSlideChange, ctaClass, fadeIn, slideChangeTransitionStart, slideChangeTransitionEnd }
   },
   components: {
     Swiper,
@@ -165,5 +181,23 @@ export default defineComponent({
       margin: 1rem;
     }
   }
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-enter-active {
+  transition: opacity .5s, transform .5s;
+}
+
+.fade-leave-active {
+  transition: opacity 0s, transform 0s;
+}
+
+.fade-enter-to {
+  transform: translateY(0);
 }
 </style>
