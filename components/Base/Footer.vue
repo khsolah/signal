@@ -1,42 +1,71 @@
 <template>
-  <footer class="container footer__container">
+  <footer class="footer__container px-3">
     <b-row>
-      <b-col :col="12">
+      <b-col :cols="6" :sm="12" :md="12">
+        <b-card tag="div" class="footer__card" title="Menu"></b-card>
+      </b-col>
+
+      <b-col :cols="6" :sm="12" :md="12">
         <b-card tag="div" class="footer__card" title="Follow Us">
-          <b-card-text>
-            <b-button variant="outline" class="social__button">
-              <b-icon icon="facebook" variant="light"></b-icon>
-            </b-button>
-            <b-button variant="outline" class="social__button">
-              <b-icon icon="instagram" variant="light"></b-icon>
-            </b-button>
-            <b-button variant="outline" class="social__button">
-              <b-icon icon="twitter" variant="light"></b-icon>
-            </b-button>
-            <b-button variant="outline" class="social__button">
-              <b-icon icon="envelope-fill" variant="light"></b-icon>
-            </b-button>
-          </b-card-text>
+          <b-button variant="outline" class="px-2 social__button">
+            <b-icon icon="facebook" variant="light"></b-icon>
+          </b-button>
+          <b-button variant="outline" class="px-2 social__button">
+            <b-icon icon="instagram" variant="light"></b-icon>
+          </b-button>
+          <b-button variant="outline" class="px-2 social__button">
+            <b-icon icon="twitter" variant="light"></b-icon>
+          </b-button>
         </b-card>
       </b-col>
     </b-row>
+
+    <b-card tag="div" class="footer__card" title="Subscribe to the latest news">
+      <b-form @submit="handleSubmit">
+        <b-form-group
+          id="input-group-1"
+          label-for="input-1"
+          description="We'll never share your email with anyone else."
+        >
+          <b-form-input
+            id="input-1"
+            v-model="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <b-button type="submit" variant="primary">Subscribe</b-button>
+      </b-form>
+    </b-card>
   </footer>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-import { BIcon, BIconFacebook, BIconInstagram, BIconTwitter, BIconEnvelopeFill } from 'bootstrap-vue'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  BIcon,
+  BIconFacebook,
+  BIconInstagram,
+  BIconTwitter,
+} from 'bootstrap-vue'
 
 export default defineComponent({
   name: 'Footer',
-  setup() {},
+  setup() {
+    const email = ref('')
+
+    const handleSubmit = () => {}
+
+    return { email, handleSubmit }
+  },
   components: {
     BIcon,
     BIconFacebook,
     BIconInstagram,
     BIconTwitter,
-    BIconEnvelopeFill
-  }
+  },
 })
 </script>
 
@@ -50,6 +79,7 @@ export default defineComponent({
     border: none;
     color: #fff;
     background-color: #394047;
+    text-align: center;
   }
 }
 
