@@ -2,7 +2,15 @@
   <footer class="footer__container px-3">
     <b-row>
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card" title="Menu"></b-card>
+        <b-card tag="div" class="footer__card" title="Menu">
+          <b-list-group>
+            <nuxt-link v-for="item in menu" :key="item.name" :to="item.to" class="footer__link">
+              <b-list-group-item button :disabled="item.active">
+                {{ item.name }}
+              </b-list-group-item>
+            </nuxt-link>
+          </b-list-group>
+        </b-card>
       </b-col>
 
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
@@ -43,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent, reactive, ref } from '@nuxtjs/composition-api'
 import {
   BIcon,
   BIconFacebook,
@@ -58,7 +66,16 @@ export default defineComponent({
 
     const handleSubmit = () => {}
 
-    return { email, handleSubmit }
+    // Menu
+    const menu = reactive([
+      { name: 'HOME', to: '/home', active: true },
+      { name: 'PRODUCTS', to: '/products', active: false },
+      { name: 'ABOUT US', to: '/aboutus', active: false },
+      { name: 'FAQ', to: '/shop', active: false },
+      { name: 'SIGN IN', to: 'signin', active: false }
+    ])
+
+    return { email, handleSubmit, menu }
   },
   components: {
     BIcon,
@@ -81,11 +98,28 @@ export default defineComponent({
     background-color: #394047;
     text-align: center;
   }
+
+  &__link {
+    color: #fff;
+    background-color: #394047;
+  }
+
+  @media only screen and (max-width: 768px) {
+    &__card {
+      text-align: left;
+    }
+  }
 }
 
 .social {
   &__button {
     border-radius: 50%;
   }
+}
+
+.list-group-item {
+  color: #fff;
+  background-color: #394047;
+  border: none;
 }
 </style>
