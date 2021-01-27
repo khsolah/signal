@@ -16,12 +16,12 @@ export default defineComponent({
     const token = ref('')
     const login = () => {
       root.root.$axios
-        .post('https://172.104.117.56:88/api/member/login', {
+        .post('http://172.104.117.56:88/api/member/login', {
           email: 'a@a.a',
           password: 'aaaaaa',
         })
         .then((response) => {
-          console.log(response)
+          console.log('response::', response)
           token.value = response.data
         })
         .catch((error) => {
