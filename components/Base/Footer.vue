@@ -25,28 +25,28 @@
             <b-icon icon="twitter" variant="light"></b-icon>
           </b-button>
         </b-card>
+
+        <b-card tag="div" class="footer__card" title="Subscribe to the latest news">
+          <b-form @submit="handleSubmit">
+            <b-form-group
+              id="input-group-1"
+              label-for="input-1"
+              description="We'll never share your email with anyone else."
+            >
+              <b-form-input
+                id="input-1"
+                v-model="email"
+                type="email"
+                placeholder="Enter email"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <b-button type="submit" variant="primary">Subscribe</b-button>
+          </b-form>
+        </b-card>
       </b-col>
     </b-row>
-
-    <b-card tag="div" class="footer__card" title="Subscribe to the latest news">
-      <b-form @submit="handleSubmit">
-        <b-form-group
-          id="input-group-1"
-          label-for="input-1"
-          description="We'll never share your email with anyone else."
-        >
-          <b-form-input
-            id="input-1"
-            v-model="email"
-            type="email"
-            placeholder="Enter email"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-button type="submit" variant="primary">Subscribe</b-button>
-      </b-form>
-    </b-card>
   </footer>
 </template>
 
@@ -96,7 +96,6 @@ export default defineComponent({
     border: none;
     color: #fff;
     background-color: #394047;
-    text-align: center;
   }
 
   &__link {
