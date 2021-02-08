@@ -3,7 +3,7 @@
     <b-row>
       <!-- About Us -->
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card text__light-grey" title="About Me">
+        <b-card tag="div" class="footer__card text-light-grey" title="About Me">
           <b-card-text class="text-white">
             I'm Jia-Zhan Wu, a Front-end Web Developer and mechanical keyboard
             fanatic. I'm very enthusiastic about learning new skills. Intergrate
@@ -18,7 +18,7 @@
       <b-col :cols="12" :xs="12" :sm="12" :md="6" :lg="4" :xl="4">
         <b-card
           tag="div"
-          class="footer__card text__light-grey"
+          class="footer__card text-light-grey"
           title="Subscribe to the latest news"
         >
           <b-form @submit="handleSubmit">
@@ -50,7 +50,7 @@
     <b-row>
       <!-- Follow us -->
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card text__light-grey" title="Follow Me" align="center">
+        <b-card tag="div" class="footer__card text-light-grey" title="Follow Me" align="center">
           <b-button variant="outline" class="px-2 social__button text-white">
             <b-icon icon="facebook"></b-icon>
           </b-button>
@@ -67,7 +67,7 @@
       </b-col>
 
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card text__light-grey" title="Contact Me" align="center">
+        <b-card tag="div" class="footer__card text-light-grey" title="Contact Me" align="center">
           <b-card-text class="text-white">
             khsolah@gmail.com
           </b-card-text>
