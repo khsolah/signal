@@ -144,7 +144,20 @@ export default defineComponent({
     position: relative;
 
     @media only screen and (max-width: 576px) {
+      min-height: 58vw;
       margin-bottom: 11rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      min-height: 59vw;
+    }
+
+    @media only screen and (min-width: 960px) {
+      min-height: 55vw;
+    }
+
+    @media only screen and (min-width: 1140px) {
+      min-height: 35rem;
     }
   }
 
