@@ -1,18 +1,41 @@
 <template>
   <footer class="footer__container px-3">
-    <b-row>
-      <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card" title="Menu">
-          <b-list-group>
-            <nuxt-link v-for="item in menu" :key="item.name" :to="item.to" class="footer__link">
-              <b-list-group-item button :disabled="item.active">
-                {{ item.name }}
-              </b-list-group-item>
-            </nuxt-link>
-          </b-list-group>
+    <!-- Subscribe Email Form -->
+    <b-row class="footer__row">
+      <b-col :cols="7" :xs="12" :sm="8" :md="6" :lg="5" :xl="5">
+        <b-card
+          tag="div"
+          class="footer__card"
+          title="Subscribe to the latest news"
+        >
+          <b-form @submit="handleSubmit">
+            <b-form-group
+              id="input-group-1"
+              label-for="input-1"
+              description="We'll never share your email with anyone else."
+            >
+              <b-input-group>
+                <b-form-input
+                  id="input-1"
+                  v-model="email"
+                  type="email"
+                  placeholder="Enter email"
+                  required
+                ></b-form-input>
+                <b-input-group-append>
+                  <b-button variant="primary">
+                    <b-icon icon="envelope-fill"></b-icon>
+                  </b-button>
+                </b-input-group-append>
+              </b-input-group>
+            </b-form-group>
+          </b-form>
         </b-card>
       </b-col>
+    </b-row>
 
+    <!-- Social Media Link Button -->
+    <b-row class="footer__row">
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
         <b-card tag="div" class="footer__card" title="Follow Us">
           <b-button variant="outline" class="px-2 social__button">
@@ -25,26 +48,13 @@
             <b-icon icon="twitter" variant="light"></b-icon>
           </b-button>
         </b-card>
+      </b-col>
+    </b-row>
 
-        <b-card tag="div" class="footer__card" title="Subscribe to the latest news">
-          <b-form @submit="handleSubmit">
-            <b-form-group
-              id="input-group-1"
-              label-for="input-1"
-              description="We'll never share your email with anyone else."
-            >
-              <b-form-input
-                id="input-1"
-                v-model="email"
-                type="email"
-                placeholder="Enter email"
-                required
-              ></b-form-input>
-            </b-form-group>
-
-            <b-button type="submit" variant="primary">Subscribe</b-button>
-          </b-form>
-        </b-card>
+    <!-- Copyright Text -->
+    <b-row class="footer__row">
+      <b-col :cols="6">
+        <p class="text-white">© 2021 Signal® Mechanical Keyboards Store</p>
       </b-col>
     </b-row>
   </footer>
@@ -57,6 +67,7 @@ import {
   BIconFacebook,
   BIconInstagram,
   BIconTwitter,
+  BIconEnvelopeFill,
 } from 'bootstrap-vue'
 
 export default defineComponent({
@@ -72,7 +83,7 @@ export default defineComponent({
       { name: 'PRODUCTS', to: '/products', active: false },
       { name: 'ABOUT US', to: '/aboutus', active: false },
       { name: 'FAQ', to: '/shop', active: false },
-      { name: 'SIGN IN', to: 'signin', active: false }
+      { name: 'SIGN IN', to: 'signin', active: false },
     ])
 
     return { email, handleSubmit, menu }
@@ -82,6 +93,7 @@ export default defineComponent({
     BIconFacebook,
     BIconInstagram,
     BIconTwitter,
+    BIconEnvelopeFill,
   },
 })
 </script>
@@ -90,6 +102,12 @@ export default defineComponent({
 .footer {
   &__container {
     background-color: #394047;
+    justify-content: center;
+  }
+
+  &__row {
+    justify-content: center;
+    text-align: center;
   }
 
   &__card {
