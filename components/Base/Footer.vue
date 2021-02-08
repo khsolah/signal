@@ -1,11 +1,24 @@
 <template>
   <footer class="footer__container px-3">
-    <!-- Subscribe Email Form -->
-    <b-row class="footer__row">
-      <b-col :cols="7" :xs="12" :sm="8" :md="6" :lg="5" :xl="5">
+    <b-row>
+      <!-- About Us -->
+      <b-col :cols="12" :xs="12" :sm="12" :md="6">
+        <b-card tag="div" class="footer__card text__light-grey" title="About Me">
+          <b-card-text class="text-white">
+            I'm Jia-Zhan Wu, a Front-end Web Developer and mechanical keyboard
+            fanatic. I'm very enthusiastic about learning new skills. Intergrate
+            these two interests, I made this keyboard store with Nuxt
+            Typescript, Vue 3 Composition Api and Bootstrap-Vue after get off
+            work.
+          </b-card-text>
+        </b-card>
+      </b-col>
+
+      <!-- Subscribe Email Form -->
+      <b-col :cols="12" :xs="12" :sm="12" :md="6" :lg="4" :xl="4">
         <b-card
           tag="div"
-          class="footer__card"
+          class="footer__card text__light-grey"
           title="Subscribe to the latest news"
         >
           <b-form @submit="handleSubmit">
@@ -34,27 +47,38 @@
       </b-col>
     </b-row>
 
-    <!-- Social Media Link Button -->
-    <b-row class="footer__row">
+    <b-row>
+      <!-- Follow us -->
       <b-col :cols="12" :xs="12" :sm="12" :md="6">
-        <b-card tag="div" class="footer__card" title="Follow Us">
-          <b-button variant="outline" class="px-2 social__button">
-            <b-icon icon="facebook" variant="light"></b-icon>
+        <b-card tag="div" class="footer__card text__light-grey" title="Follow Me" align="center">
+          <b-button variant="outline" class="px-2 social__button text-white">
+            <b-icon icon="facebook"></b-icon>
           </b-button>
-          <b-button variant="outline" class="px-2 social__button">
-            <b-icon icon="instagram" variant="light"></b-icon>
+          <b-button variant="outline" class="px-2 social__button text-white">
+            <b-icon icon="instagram"></b-icon>
           </b-button>
-          <b-button variant="outline" class="px-2 social__button">
-            <b-icon icon="twitter" variant="light"></b-icon>
+          <b-button variant="outline" class="px-2 social__button text-white">
+            <b-icon icon="twitter"></b-icon>
           </b-button>
+          <b-button variant="outline" class="px-2 social__button text-white">
+            <b-icon icon="youtube"></b-icon>
+          </b-button>
+        </b-card>
+      </b-col>
+
+      <b-col :cols="12" :xs="12" :sm="12" :md="6">
+        <b-card tag="div" class="footer__card text__light-grey" title="Contact Me" align="center">
+          <b-card-text class="text-white">
+            khsolah@gmail.com
+          </b-card-text>
         </b-card>
       </b-col>
     </b-row>
 
     <!-- Copyright Text -->
-    <b-row class="footer__row">
-      <b-col :cols="6">
-        <p class="text-white">© 2021 Signal® Mechanical Keyboards Store</p>
+    <b-row>
+      <b-col :cols="12">
+        <p class="text-white" align="center">© 2021 Signal® Mechanical Keyboards Store</p>
       </b-col>
     </b-row>
   </footer>
@@ -67,6 +91,7 @@ import {
   BIconFacebook,
   BIconInstagram,
   BIconTwitter,
+  BIconYoutube,
   BIconEnvelopeFill,
 } from 'bootstrap-vue'
 
@@ -93,6 +118,7 @@ export default defineComponent({
     BIconFacebook,
     BIconInstagram,
     BIconTwitter,
+    BIconYoutube,
     BIconEnvelopeFill,
   },
 })
@@ -102,29 +128,16 @@ export default defineComponent({
 .footer {
   &__container {
     background-color: #394047;
-    justify-content: center;
-  }
-
-  &__row {
-    justify-content: center;
-    text-align: center;
   }
 
   &__card {
     border: none;
-    color: #fff;
     background-color: #394047;
   }
 
   &__link {
     color: #fff;
     background-color: #394047;
-  }
-
-  @media only screen and (max-width: 768px) {
-    &__card {
-      text-align: left;
-    }
   }
 }
 
@@ -138,5 +151,11 @@ export default defineComponent({
   color: #fff;
   background-color: #394047;
   border: none;
+}
+
+.card {
+  &-title {
+    text-align: center;
+  }
 }
 </style>
