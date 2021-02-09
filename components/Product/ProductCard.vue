@@ -1,30 +1,47 @@
 <template>
   <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
+    :title="product.name"
+    :sub-title="`$${product.price}`"
+    :img-src="product.image"
+    sub-title-text-variant="light-pink"
     img-alt="Image"
     img-top
-    tag="article"
-    style="max-width: 20rem"
-    class="mb-2"
+    tag="div"
+    class="mb-2 bg__dark-grey product__card text-light-blue"
+    align="center"
   >
     <b-card-text>
-      
+      {{ product.subtitle }}
     </b-card-text>
-
-    <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'ProductCard',
-  setup(props) {
-    
+  props: {
+    product: Object
+  },
+  setup() {
   },
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+  &-img-top {
+    object-fit: cover;
+    object-position: center;
+
+    @media only screen and (min-width: 576px) {
+      height: 50vw;
+    }
+
+    @media only screen and (max-width: 768px) {
+      height: 45vw;
+    }
+  }
+}
+</style>

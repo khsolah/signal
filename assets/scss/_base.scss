@@ -4,34 +4,27 @@ a {
 
   &:hover {
     color: #8096a480;
+    text-decoration: none;
   }
 }
 
-body {
-  font-size: 16px;
+html {
+  font-size: 10px;
 
-  @media only screen and (max-width: 360px) {
-    font-size: 4vw;
+  @media only screen and (min-width: 576px) {
+    font-size: 13px;
   }
 
-  @media only screen and (max-width: 576px) {
-    font-size: 3.5vw;
-  }
-
-  @media only screen and (max-width: 768px) {
-    font-size: 3vw;
-  }
-
-  @media only screen and (max-width: 998px) {
-    font-size: 2.25vw;
-  }
-
-  @media only screen and (max-width: 1280px) {
-    font-size: 1.1vw;
-  }
-
-  @media only scree and (min-width: 1440px) {
+  @media only screen and (min-width: 768px) {
     font-size: 14px;
+  }
+
+  @media only screen and (min-width: 996px) {
+    font-size: 15px;
+  }
+
+  @media only scree and (min-width: 1200px) {
+    font-size: 16px;
   }
 }
 
@@ -45,4 +38,29 @@ body {
 
 [class~=text-light-blue] {
   color: $light-blue;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+[class~=fadeup--show] {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .25s ease-in-out, visibility .25s ease-in-out, transform .25s ease-in-out;
+}
+
+[class~=fadeup--hide] {
+  transform: translateY(1.5rem);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease-in-out, visibility .25s ease-in-out, transform .25s ease-in-out;
 }
