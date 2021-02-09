@@ -1,6 +1,7 @@
 .product {
   &__card {
-    background-color: $dark-grey;
-    border: 5px solid $dark-grey;
+    // @include card-shadow;
+    // background-color: $dark-grey;
+    // border: 5px solid $dark-grey;
   }
 }
