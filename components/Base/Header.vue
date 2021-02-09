@@ -15,7 +15,7 @@
     </b-navbar-nav>
 
     <!-- buttons -->
-    <b-button-group class="mr-0">
+    <b-button-group class="mr-0 nav__button-group">
       <b-button variant="outline" class="nav__button" v-show="windowWidth > 576">
         <b-icon icon="search"></b-icon>
       </b-button>
@@ -87,13 +87,21 @@ export default defineComponent({
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
   height: 9vh;
+  z-index: 2;
 
   &__button {
     color: #fff;
 
     &:hover {
       color: rgba(255, 255, 255, 0.5);
+    }
+
+    &-group {
+      margin-left: auto;
     }
   }
 

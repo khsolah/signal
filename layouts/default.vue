@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nuxt />
+    <Nuxt id="default" />
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default defineComponent({
   name: 'Default',
   setup(prop, { root }) {
     if (process.client) {
+      root.$store.dispatch('InitWindowWidth')
       const resize = () => root.$store.dispatch('DetectWindowResize')
       window.addEventListener('resize', resize)
     }
@@ -19,6 +20,10 @@ export default defineComponent({
 </script>
 
 <style>
+#default {
+  padding-top: 9vh;
+}
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
