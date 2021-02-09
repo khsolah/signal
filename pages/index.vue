@@ -2,7 +2,7 @@
   <div>
     <Header />
     <Carousel />
-    <b-container fluid class="entrance__container">
+    <!-- <b-container fluid class="entrance__container">
       <b-row>
         <b-col
           :cols="6"
@@ -18,30 +18,33 @@
           </nuxt-link>
         </b-col>
       </b-row>
-    </b-container>
+    </b-container> -->
 
-    <b-container fluid class="grid__container"> </b-container>
+    <b-container id="featured-product">
+      <b-row>
+        <b-col :cols="12" class="mb-3">
+          <h2 align="center">Featured Products</h2>
+        </b-col>
+
+        <b-col
+          :cols="6"
+          v-for="item in FeaturedProducts"
+          :key="item.id"
+        >
+          <ProductCard :product="item" />
+        </b-col>
+      </b-row>
+    </b-container>
     <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, reactive } from '@nuxtjs/composition-api'
 import { IProductAbstract } from '~/components/Product/IProduct'
 
 export default defineComponent({
-  setup() {
-    const product = reactive<IProductAbstract[]>([
-      {
-        id: 'gmk-posh-1',
-        name: 'GMK Posh',
-        subtitle: 'Signal Store',
-        price: 150,
-        image: '',
-        hoveredImage: '',
-      },
-    ])
-
+  setup(prop, { root }) {
     interface IEntrance {
       name: string
       image: string
@@ -53,14 +56,36 @@ export default defineComponent({
       { name: 'DIY Kits', image: 'https://picsum.photos/600/300/?image=25' },
     ])
 
+    const FeaturedProducts = reactive<IProductAbstract[]>([
+      { id: 'gmk-dots', name: 'GMK Dots', price: 160, image: require('~/assets/images/carousel-banner/gmk-dots.jpg') },
+      { id: 'gmk-posh', name: 'GMK Posh', price: 158, image: require('~/assets/images/carousel-banner/gmk-posh.jpg') },
+      { id: 'gmk-amethyst', name: 'GMK Amethyst', price: 165, image: require('~/assets/images/carousel-banner/gmk-amethyst.png') },
+      { id: 'gmk-rainy-day', name: 'GMK Rainy Day', price: 159, image: require('~/assets/images/carousel-banner/gmk-rainyday.png') }
+    ])
+
     return {
       Entrance,
+      FeaturedProducts
     }
-  },
+  }
 })
 </script>
 
 <style lang="scss" scoped>
+#featured-product {
+  @media only screen and (min-width: 576px) {
+    max-width: 70vw;
+  }
+
+  @media only screen and (min-width: 786px) {
+    max-width: 67vw;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: 50vw;
+  }
+}
+
 .entrance {
   &__container {
     @media only screen and (min-width: 576px) {
@@ -71,11 +96,11 @@ export default defineComponent({
       padding-top: 1.5vw;
     }
 
-    @media only screen and (min-width: 960px) {
+    @media only screen and (min-width: 992px) {
       padding-top: 1vw;
     }
 
-    @media only screen and (min-width: 1140px) {
+    @media only screen and (min-width: 1200px) {
       padding-top: 1.75rem;
     }
   }
@@ -92,11 +117,11 @@ export default defineComponent({
       min-height: 27vw;
     }
 
-    @media only screen and (min-width: 960px) {
+    @media only screen and (min-width: 992px) {
       min-height: 21vw;
     }
 
-    @media only screen and (min-width: 1140px) {
+    @media only screen and (min-width: 1200px) {
       min-height: 14rem;
     }
   }
