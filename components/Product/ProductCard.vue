@@ -50,7 +50,7 @@ export default defineComponent({
   &-img-top {
     object-fit: cover;
     object-position: center;
-    height: 52vw;
+    height: 22.5vw;
 
     @media only screen and (min-width: 576px) {
       height: 25vw;
