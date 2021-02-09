@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper__container">
+  <div class="swiper__container mb-5">
     <client-only>
       <!-- this component will only be rendered on client-side -->
       <swiper
@@ -9,23 +9,22 @@
         @slideChangeTransitionStart="slideChangeTransitionStart"
         @slideChangeTransitionEnd="slideChangeTransitionEnd"
       >
-        <swiper-slide v-for="item in banner" :key="item.name">
+        <swiper-slide v-for="(item, index) in banner" :key="item.name">
           <img :src="item.image" alt="" class="swiper__image" />
+          <!-- but product button -->
+          <transition name="fade">
+            <div :class="ctaClass" v-show="fadeIn && index === realIndex">
+              <h1>{{ banner[realIndex].title }}</h1>
+              <p>{{ banner[realIndex].subtitle }}</p>
+              <b-button class="swiper__cta--btn" variant="primary">{{ banner[realIndex].ctaText }}</b-button>
+            </div>
+          </transition>
         </swiper-slide>
 
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
-
-      <!-- but product button -->
-      <transition name="fade">
-        <div :class="ctaClass" v-show="fadeIn">
-          <h1>{{ banner[realIndex].title }}</h1>
-          <p>{{ banner[realIndex].subtitle }}</p>
-          <b-button class="swiper__cta--btn" variant="primary">{{ banner[realIndex].ctaText }}</b-button>
-        </div>
-      </transition>
     </client-only>
   </div>
 </template>
@@ -35,9 +34,7 @@ import {
   computed,
   defineComponent,
   onMounted,
-  onUnmounted,
   ref,
-  watch,
 } from '@nuxtjs/composition-api'
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
@@ -122,7 +119,7 @@ export default defineComponent({
       fadeIn.value = false
     }
 
-    const slideChangeTransitionEnd = () => {
+    const slideChangeTransitionEnd = async () => {
       fadeIn.value = true
     }
 
@@ -142,65 +139,57 @@ export default defineComponent({
 .swiper {
   &__container {
     position: relative;
-
-    @media only screen and (max-width: 576px) {
-      min-height: 58vw;
-      margin-bottom: 11rem;
-    }
-
-    @media only screen and (min-width: 768px) {
-      min-height: 59vw;
-    }
-
-    @media only screen and (min-width: 960px) {
-      min-height: 55vw;
-    }
-
-    @media only screen and (min-width: 1140px) {
-      min-height: 35rem;
-    }
   }
 
   &__image {
     width: 100vw;
-    height: 35rem;
+    height: 91vh;
     object-fit: cover;
 
-    @media only screen and (max-width: 768px) {
-      height: 58vw;
+    @media only screen and (min-width: 576px) {
+      height: 70vh;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 60vh;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      height: 87vh;
     }
   }
 
   &__cta {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
     color: #fff;
     text-shadow: black 0.1em 0.1em 0.2em;
+    text-align: center;
     z-index: 1;
 
-    &--left {
-      bottom: 3vw;
-      left: 2rem;
+
+    @media only screen and (min-width: 576px) {
+      margin: 1rem auto;
+      top: 73%;
+
+      &--left {
+        left: 2rem;
+        transform: translate(0, -50%);
+      }
+  
+      &--right {
+        left: 75%;
+      }
     }
 
-    &--right {
-      bottom: 3vw;
-      right: 2rem;
-    }
-
-    @media only screen and (max-width: 768px) {
-      bottom: 2vw;
-    }
-
-    @media only screen and (max-width: 576px) {
-      position: absolute;
-      display: block;
-      bottom: -11rem;
-      right: 0;
-      left: 0;
-      color: black;
-      text-align: center;
-      text-shadow: none;
-      margin: 1rem;
+    @media only screen and (min-width: 768px) {
+      top: 75%;
     }
   }
 }
@@ -208,18 +197,18 @@ export default defineComponent({
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  padding-top: 30px;
 }
 
 .fade-enter-active {
-  transition: opacity .5s, transform .5s;
+  transition: opacity .5s, padding-top .5s;
 }
 
 .fade-leave-active {
-  transition: opacity 0s, transform 0s;
+  transition: opacity 0s, padding-top 0s;
 }
 
 .fade-enter-to {
-  transform: translateY(0);
+  padding-top: 0;
 }
 </style>
