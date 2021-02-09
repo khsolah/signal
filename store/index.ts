@@ -3,7 +3,7 @@ import { ActionTree, GetterTree, MutationTree } from 'vuex'
 export type RootState = ReturnType<typeof state>
 
 export const state = () => ({
-  WindowWidth: 0,
+  WindowWidth: process.client ? window.innerWidth : 0,
   WindowSize: ''
 })
 
@@ -31,6 +31,9 @@ export const mutations: MutationTree<RootState> = {
       default:
         state.WindowSize = 'xl'
     }
+  },
+  InitWindowWidth: state => {
+    state.WindowWidth = window.innerWidth
   }
 }
 
@@ -38,4 +41,7 @@ export const actions: ActionTree<RootState, RootState> = {
   DetectWindowResize: ({ commit }) => {
     commit('DetectWindowResize')
   },
+  InitWindowWidth: ({ commit }) => {
+    commit('InitWindowWidth')
+  }
 }
