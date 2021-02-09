@@ -20,7 +20,7 @@
       </b-row>
     </b-container> -->
 
-    <b-container id="featured-product">
+    <b-container id="featured-product" class="my-3">
       <b-row>
         <b-col :cols="12" class="mb-3">
           <h2 align="center">Featured Products</h2>
@@ -32,6 +32,12 @@
           :key="item.id"
         >
           <ProductCard :product="item" />
+        </b-col>
+
+        <b-col cols="auto" class="mr-auto ml-auto mb-3 mx-a">
+          <b-button variant="outline-dark">
+            <h3 class="mb-0">VIEW ALL</h3>
+          </b-button>
         </b-col>
       </b-row>
     </b-container>
@@ -73,12 +79,22 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #featured-product {
+  max-width: 90vw;
+
+  @media only screen and (min-width: 480px) {
+    max-width: 80vw;
+  }
+
   @media only screen and (min-width: 576px) {
-    max-width: 70vw;
+    max-width: 67vw;
   }
 
   @media only screen and (min-width: 786px) {
-    max-width: 67vw;
+    max-width: 63vw;
+  }
+
+  @media only screen and (min-width: 996px) {
+    max-width: 57vw;
   }
 
   @media only screen and (min-width: 1200px) {
