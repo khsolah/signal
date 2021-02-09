@@ -1,0 +1,18 @@
+$light-grey: #8096a4;
+$dark-grey: #394047;
+
+$light-pink: #a797a7;
+$light-blue: #8096a4;
+
+$bg-theme: #000;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 640px,
+  lg: 992px,
+  xl: 1500px
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
