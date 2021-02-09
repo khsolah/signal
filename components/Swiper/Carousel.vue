@@ -15,8 +15,10 @@
           <transition name="fade">
             <div :class="ctaClass" v-show="fadeIn && index === realIndex">
               <h1>{{ banner[realIndex].title }}</h1>
-              <p>{{ banner[realIndex].subtitle }}</p>
-              <b-button class="swiper__cta--btn" variant="primary">{{ banner[realIndex].ctaText }}</b-button>
+              <h4>{{ banner[realIndex].subtitle }}</h4>
+              <b-button class="swiper__cta--btn" variant="primary">
+                <h3>{{ banner[realIndex].ctaText }}</h3>
+              </b-button>
             </div>
           </transition>
         </swiper-slide>
@@ -40,6 +42,7 @@ import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import SwiperClass, { SwiperOptions } from 'swiper'
 import IBanner from './IBanner'
+import Footer from '../Base/Footer.vue'
 
 export default defineComponent({
   name: 'Carousel',
@@ -127,7 +130,7 @@ export default defineComponent({
   },
   components: {
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   directives: {
     directive,
@@ -139,15 +142,14 @@ export default defineComponent({
 .swiper {
   &__container {
     position: relative;
-  }
+    height: 50vh;
 
-  &__image {
-    width: 100vw;
-    height: 91vh;
-    object-fit: cover;
+    @media only screen and (min-width: 480px) {
+      height: 55vw;
+    }
 
     @media only screen and (min-width: 576px) {
-      height: 70vh;
+      height: 60vh;
     }
 
     @media only screen and (min-width: 768px) {
@@ -155,7 +157,29 @@ export default defineComponent({
     }
 
     @media only screen and (min-width: 1200px) {
-      height: 87vh;
+      height: 65vh;
+    }
+  }
+
+  &__image {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+
+    @media only screen and (min-width: 480px) {
+      height: 55vh;
+    }
+
+    @media only screen and (min-width: 576px) {
+      height: 60vh;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 60vh;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      height: 65vh;
     }
   }
 
@@ -190,6 +214,22 @@ export default defineComponent({
 
     @media only screen and (min-width: 768px) {
       top: 75%;
+
+      &--right {
+        left: 77%;
+      }
+    }
+
+    @media only screen and (min-width: 996px) {
+      &--right {
+        left: 80%;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      &--right {
+        left: 85%;
+      }
     }
   }
 }
