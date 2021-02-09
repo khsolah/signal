@@ -1,10 +1,12 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="dark" class="p-3">
+  <b-navbar toggleable="md" type="dark" variant="dark" class="p-3 nav">
     <!-- SideBar -->
     <SideBar id="sidebar" v-show="windowWidth < 768" />
 
     <!-- brand -->
-    <b-navbar-brand href="#" class="nav__brand ml-0">Signal</b-navbar-brand>
+    <b-navbar-brand href="#" class="nav__brand ml-0">
+      <h1>Signal</h1>
+    </b-navbar-brand>
 
     <!-- site nav -->
     <b-navbar-nav class="ml-3 mr-auto" v-show="windowWidth > 768">
@@ -85,6 +87,8 @@ export default defineComponent({
 }
 
 .nav {
+  height: 9vh;
+
   &__button {
     color: #fff;
 
