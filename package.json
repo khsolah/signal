@@ -15,6 +15,7 @@
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/composition-api": "^0.18.1",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@types/jest": "^26.0.20",
     "@types/swiper": "^5.4.1",
     "bootstrap-vue": "^2.21.2",
@@ -24,7 +25,8 @@
     "nuxt-start": "^2.14.12",
     "sass-loader": "^10.1.1",
     "swiper": "^5.4.5",
-    "vue-awesome-swiper": "^4.1.1"
+    "vue-awesome-swiper": "^4.1.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
