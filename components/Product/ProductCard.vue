@@ -61,11 +61,11 @@ export default defineComponent({
     }
 
     @media only screen and (min-width: 996px) {
-      height: 13vw;
+      height: 18vw;
     }
 
     @media only screen and (min-width: 1200px) {
-      // height: ;
+      height: 16rem;
     }
   }
 }
