@@ -4,11 +4,25 @@
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  name: 'Default',
+  setup(prop, { root }) {
+    if (process.client) {
+      const resize = () => root.$store.dispatch('DetectWindowResize')
+      window.addEventListener('resize', resize)
+    }
+  },
+})
+</script>
+
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
