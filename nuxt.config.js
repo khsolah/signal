@@ -40,14 +40,17 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
+    '@nuxtjs/style-resources',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // BootstrapVue module configuration: https://bootstrap-vue.org/docs
-  BootstrapVue: {
-    icons: true
+  bootstrapVue: {
+    icons: true,
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
