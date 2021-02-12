@@ -1,53 +1,58 @@
 <template>
-  <div>
-    <Header />
+  <article>
     <Carousel />
-    <!-- <b-container fluid class="entrance__container">
-      <b-row>
-        <b-col
-          :cols="6"
-          :xs="6"
-          :sm="6"
-          :md="3"
-          v-for="item in Entrance"
-          :key="item.name"
-          class="entrance__item"
-        >
-          <nuxt-link :to="{ path: 'Product' }">
-            <ProductEntrance :product="item" />
-          </nuxt-link>
-        </b-col>
-      </b-row>
-    </b-container> -->
 
-    <b-container id="featured-product" class="my-3">
-      <b-row>
-        <b-col :cols="12" class="mb-3">
-          <h2 align="center">Featured Products</h2>
-        </b-col>
+    <section>
+      <!-- Categories -->
+      <b-container fluid>
+        <b-row>
+          <b-col
+            :cols="12"
+            :sm="12"
+            :md="12"
+            :lg="6"
+            v-for="item in Category"
+            :key="item.title"
+            class="mb-3"
+          >
+            <nuxt-link :to="item.to">
+              <img :src="item.image" alt="" class="category__image" />
+              <h2 class="category__title">{{ item.title }}</h2>
+            </nuxt-link>
+          </b-col>
+        </b-row>
+      </b-container>
 
-        <b-col
-          :cols="6"
-          v-for="item in FeaturedProducts"
-          :key="item.id"
-        >
-          <ProductCard :product="item" />
-        </b-col>
+      <!-- Featured Products -->
+      <b-container id="featured-product" class="my-3">
+        <b-row>
+          <b-col :cols="12" class="mb-3">
+            <h2 align="center">Featured Products</h2>
+          </b-col>
 
-        <b-col cols="auto" class="mr-auto ml-auto mb-3 mx-a">
-          <b-button variant="outline-dark">
-            <h3 class="mb-0">VIEW ALL</h3>
-          </b-button>
-        </b-col>
-      </b-row>
-    </b-container>
-    <Footer />
-  </div>
+          <b-col
+            :cols="6"
+            :md="3"
+            v-for="item in FeaturedProducts"
+            :key="item.id"
+          >
+            <ProductCard :product="item" />
+          </b-col>
+
+          <b-col cols="auto" class="mr-auto ml-auto mb-3 mx-a">
+            <b-button variant="outline-dark">
+              <h3 class="mb-0">VIEW ALL</h3>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+  </article>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from '@nuxtjs/composition-api'
-import { IProductAbstract } from '~/components/Product/IProduct'
+import { defineComponent, reactive } from '@nuxtjs/composition-api'
+import { ICategory, IProductAbstract } from '~/components/Product/IProduct'
 
 export default defineComponent({
   setup(prop, { root }) {
@@ -55,25 +60,75 @@ export default defineComponent({
       name: string
       image: string
     }
-    const Entrance = reactive<IEntrance[]>([
-      { name: 'Keyboards', image: 'https://picsum.photos/600/300/?image=25' },
-      { name: 'Keycaps', image: 'https://picsum.photos/600/300/?image=25' },
-      { name: 'Accessories', image: 'https://picsum.photos/600/300/?image=25' },
-      { name: 'DIY Kits', image: 'https://picsum.photos/600/300/?image=25' },
-    ])
 
     const FeaturedProducts = reactive<IProductAbstract[]>([
-      { id: 'gmk-dots', name: 'GMK Dots', price: 160, image: require('~/assets/images/carousel-banner/gmk-dots.jpg') },
-      { id: 'gmk-posh', name: 'GMK Posh', price: 158, image: require('~/assets/images/carousel-banner/gmk-posh.jpg') },
-      { id: 'gmk-amethyst', name: 'GMK Amethyst', price: 165, image: require('~/assets/images/carousel-banner/gmk-amethyst.png') },
-      { id: 'gmk-rainy-day', name: 'GMK Rainy Day', price: 159, image: require('~/assets/images/carousel-banner/gmk-rainyday.png') }
+      {
+        id: 'gmk-dots',
+        name: 'GMK Dots',
+        price: 160,
+        image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
+      },
+      {
+        id: 'gmk-posh',
+        name: 'GMK Posh',
+        price: 158,
+        image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
+      },
+      {
+        id: 'gmk-amethyst',
+        name: 'GMK Amethyst',
+        price: 165,
+        image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
+      },
+      {
+        id: 'gmk-rainy-day',
+        name: 'GMK Rainy Day',
+        price: 159,
+        image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
+      },
+    ])
+
+    const Category = reactive<ICategory[]>([
+      {
+        title: 'Shop Keyboards',
+        image: require('~/assets/images/mechanical-keyboard.jpeg'),
+        to: {
+          path: '/collections',
+          query: { category: 'keyboard' },
+        },
+      },
+      {
+        title: 'Shop Keycaps',
+        image: require('~/assets/images/keycaps.jpg'),
+        to: { path: '/collections', query: { category: 'keycaps' } },
+      },
+      {
+        title: 'Shop Switches',
+        image: require('~/assets/images/switches.png'),
+        to: {
+          path: '/collections',
+          query: {
+            category: 'switches',
+          },
+        },
+      },
+      {
+        title: 'Shop DIY Kits',
+        image: require('~/assets/images/diy-kits.jpg'),
+        to: {
+          path: '/collections',
+          query: {
+            category: 'diy kits',
+          },
+        },
+      },
     ])
 
     return {
-      Entrance,
-      FeaturedProducts
+      FeaturedProducts,
+      Category,
     }
-  }
+  },
 })
 </script>
 
@@ -90,15 +145,7 @@ export default defineComponent({
   }
 
   @media only screen and (min-width: 786px) {
-    max-width: 63vw;
-  }
-
-  @media only screen and (min-width: 996px) {
-    max-width: 57vw;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    max-width: 50vw;
+    max-width: 100vw;
   }
 }
 
@@ -141,5 +188,9 @@ export default defineComponent({
       min-height: 14rem;
     }
   }
+}
+
+#store-introduce {
+  position: relative;
 }
 </style>
