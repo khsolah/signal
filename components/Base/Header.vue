@@ -10,13 +10,22 @@
 
     <!-- site nav -->
     <b-navbar-nav class="ml-3 mr-auto" v-show="windowWidth > 768">
-      <nuxt-link to="/" class="p-2">Home</nuxt-link>
-      <nuxt-link to="/" class="p-2">Products</nuxt-link>
+      <nuxt-link
+        v-for="item in list"
+        :key="item.title"
+        :to="item.to"
+        class="p-2"
+        >{{ item.title }}</nuxt-link
+      >
     </b-navbar-nav>
 
     <!-- buttons -->
     <b-button-group class="mr-0 nav__button-group">
-      <b-button variant="outline" class="nav__button" v-show="windowWidth > 576">
+      <b-button
+        variant="outline"
+        class="nav__button"
+        v-show="windowWidth > 576"
+      >
         <b-icon icon="search"></b-icon>
       </b-button>
       <b-button variant="outline" class="nav__button px-2">
@@ -29,11 +38,12 @@
   </b-navbar>
 </template>
 
-<script>
+<script lang="ts">
 import {
   defineComponent,
   onMounted,
   onUnmounted,
+  reactive,
   ref,
 } from '@nuxtjs/composition-api'
 import {
@@ -43,7 +53,8 @@ import {
   BIconPersonCircle,
   BIconList,
 } from 'bootstrap-vue'
-import SideBar from '@/components/Base/sidebar'
+import { ICategory } from '../Product/IProduct'
+import SideBar from '@/components/Base/sidebar.vue'
 
 export default defineComponent({
   name: 'Header',
@@ -72,7 +83,50 @@ export default defineComponent({
       })
     }
 
-    return { windowWidth }
+    const list = reactive<ICategory[]>([
+      { title: 'Home', to: { path: '/' } },
+      {
+        title: 'Keyboards',
+        to: {
+          path: '/collections',
+          query: {
+            category: 'keyboards',
+          },
+        },
+      },
+      {
+        title: 'Keycaps',
+        to: {
+          path: '/collections',
+          query: {
+            category: 'keycaps'
+          }
+        }
+      },
+      {
+        title: 'Switches',
+        to: {
+          path: '/collections',
+          query: {
+            category: 'switches'
+          }
+        }
+      },
+      {
+        title: 'DIY Kits',
+        to: {
+          path: '/collections',
+          query: {
+            category: 'diy kits'
+          }
+        }
+      }
+    ])
+
+    return {
+      windowWidth,
+      list
+    }
   },
 })
 </script>
