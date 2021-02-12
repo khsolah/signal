@@ -7,3 +7,14 @@ export interface IProductAbstract {
   hoveredImage?: ImageData
   tag?: string
 }
+
+export interface ICategory {
+  title: string
+  image?: ImageData
+  to: {
+    path: string
+    name?: string
+    query?: Object
+    params?: Object
+  }
+}
