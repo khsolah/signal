@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer__container px-3">
+  <footer class="footer__container" fluid>
     <b-row class="footer__row">
       <!-- About Us -->
       <b-col :cols="12" :xs="12" :sm="12" :md="7">
@@ -117,6 +117,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .footer {
   &__container {
+    overflow: hidden;
     background-color: #394047;
   }
 
