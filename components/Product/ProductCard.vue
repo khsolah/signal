@@ -65,7 +65,7 @@ export default defineComponent({
     }
 
     @media only screen and (min-width: 1200px) {
-      height: 16rem;
+      height: 10rem;
     }
   }
 }
