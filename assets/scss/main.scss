@@ -2,4 +2,8 @@
 @import './base.scss';
 @import './mixin.scss';
 
+@import './components/category';
+@import './components/introduce';
 @import './components/product';
+
+@import './layout/grid';
