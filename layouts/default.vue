@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Nuxt id="default" />
+    <Header />
+    <Nuxt class="default-content" />
+    <Footer />
   </div>
 </template>
 
@@ -20,7 +22,7 @@ export default defineComponent({
 </script>
 
 <style>
-#default {
+.default-content {
   padding-top: 9vh;
 }
 
