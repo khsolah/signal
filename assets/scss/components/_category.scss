@@ -1,6 +1,7 @@
 .category {
   &__container {
     &--home {
+      position: relative;
       display: inline-block;
       width: 100%;
       height: 70vw;
@@ -51,7 +52,7 @@
     width: 100%;
     height: 70vw;
     object-fit: cover;
-    transition: transform 5s ease;
+    transition: transform 3s ease;
 
     @media only screen and (min-width: 480px) {
       height: 60vw;
