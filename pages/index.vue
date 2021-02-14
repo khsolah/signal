@@ -2,27 +2,7 @@
   <article>
     <Carousel />
 
-    <section>
-      <!-- Categories -->
-      <b-container fluid>
-        <b-row>
-          <b-col
-            :cols="12"
-            :sm="12"
-            :md="12"
-            :lg="6"
-            v-for="item in Category"
-            :key="item.title"
-            class="mb-3"
-          >
-            <nuxt-link :to="item.to">
-              <img :src="item.image" alt="" class="category__image" />
-              <h2 class="category__title">{{ item.title }}</h2>
-            </nuxt-link>
-          </b-col>
-        </b-row>
-      </b-container>
-
+    <section id="content">
       <!-- Featured Products -->
       <b-container id="featured-product" class="my-3">
         <b-row>
@@ -43,6 +23,31 @@
             <b-button variant="outline-dark">
               <h3 class="mb-0">VIEW ALL</h3>
             </b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+
+      <!-- Categories -->
+      <b-container fluid>
+        <b-row>
+          <b-col
+            :cols="12"
+            :sm="12"
+            :md="12"
+            :lg="6"
+            v-for="item in Category"
+            :key="item.title"
+            class="mb-3"
+          >
+            <nuxt-link :to="item.to" class="category__container--home">
+              <img :src="item.image" alt="" class="category__image" />
+              <header class="category__header">
+                <h1 class="category__title mb-4">{{ item.title }}</h1>
+                <b-button variant="outline-light">
+                  <h3>VIEW PRODUCTS</h3>
+                </b-button>
+              </header>
+            </nuxt-link>
           </b-col>
         </b-row>
       </b-container>
@@ -90,7 +95,7 @@ export default defineComponent({
 
     const Category = reactive<ICategory[]>([
       {
-        title: 'Shop Keyboards',
+        title: 'Keyboards',
         image: require('~/assets/images/mechanical-keyboard.jpeg'),
         to: {
           path: '/collections',
@@ -98,12 +103,12 @@ export default defineComponent({
         },
       },
       {
-        title: 'Shop Keycaps',
+        title: 'Keycaps',
         image: require('~/assets/images/keycaps.jpg'),
         to: { path: '/collections', query: { category: 'keycaps' } },
       },
       {
-        title: 'Shop Switches',
+        title: 'Switches',
         image: require('~/assets/images/switches.png'),
         to: {
           path: '/collections',
@@ -113,7 +118,7 @@ export default defineComponent({
         },
       },
       {
-        title: 'Shop DIY Kits',
+        title: 'DIY Kits',
         image: require('~/assets/images/diy-kits.jpg'),
         to: {
           path: '/collections',
