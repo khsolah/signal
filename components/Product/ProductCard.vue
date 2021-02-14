@@ -11,7 +11,7 @@
     @mouseenter="show"
     @mouseleave="hide"
   >
-    <h6 class="card-subtitle my-3" :class="CardBodyClass">${{ product.price }}</h6>
+    <h6 class="card-subtitle my-3">${{ product.price }}</h6>
     <b-button variant="outline-dark" :class="CardBodyClass">ADD TO CART</b-button>
   </b-card>
 </template>
