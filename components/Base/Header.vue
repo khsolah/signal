@@ -84,14 +84,19 @@ export default defineComponent({
     }
 
     const list = reactive<ICategory[]>([
-      { title: 'Home', to: { path: '/' } },
+      {
+        title: 'Home',
+        to: {
+          path: '/'
+        }
+      },
       {
         title: 'Keyboards',
         to: {
           path: '/collections',
           query: {
-            category: 'keyboards',
-          },
+            category: 'Keyboards',
+          }
         },
       },
       {
@@ -99,7 +104,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'keycaps'
+            category: 'Keycaps'
           }
         }
       },
@@ -108,7 +113,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'switches'
+            category: 'Switches'
           }
         }
       },
@@ -117,7 +122,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'diy kits'
+            category: 'DIY Kits'
           }
         }
       }
