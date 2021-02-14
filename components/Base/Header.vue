@@ -87,50 +87,38 @@ export default defineComponent({
       {
         title: 'Home',
         to: {
-          path: '/'
-        }
+          path: '/',
+        },
       },
       {
         title: 'Keyboards',
         to: {
-          path: '/collections',
-          query: {
-            category: 'Keyboards',
-          }
+          path: '/collections/Keyboards',
         },
       },
       {
         title: 'Keycaps',
         to: {
-          path: '/collections',
-          query: {
-            category: 'Keycaps'
-          }
-        }
+          path: '/collections/Keycaps',
+        },
       },
       {
         title: 'Switches',
         to: {
-          path: '/collections',
-          query: {
-            category: 'Switches'
-          }
-        }
+          path: '/collections/Switches',
+        },
       },
       {
         title: 'DIY Kits',
         to: {
-          path: '/collections',
-          query: {
-            category: 'DIY Kits'
-          }
-        }
-      }
+          path: '/collections/DIY Kits',
+        },
+      },
     ])
 
     return {
       windowWidth,
-      list
+      list,
     }
   },
 })
