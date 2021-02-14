@@ -20,6 +20,8 @@
           </b-col>
 
           <b-col cols="auto" class="mr-auto ml-auto mb-3 mx-a">
+            <!-- // Todo: use nuxt link -->
+            <!-- <nuxt-link></nuxt-link> -->
             <b-button variant="outline-dark">
               <h3 class="mb-0">VIEW ALL</h3>
             </b-button>
@@ -99,13 +101,20 @@ export default defineComponent({
         image: require('~/assets/images/mechanical-keyboard.jpeg'),
         to: {
           path: '/collections',
-          query: { category: 'keyboard' },
+          query: {
+            category: 'Keyboards'
+          },
         },
       },
       {
         title: 'Keycaps',
         image: require('~/assets/images/keycaps.jpg'),
-        to: { path: '/collections', query: { category: 'keycaps' } },
+        to: {
+          path: '/collections',
+          query: {
+            category: 'Keycaps',
+          },
+        },
       },
       {
         title: 'Switches',
@@ -113,7 +122,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'switches',
+            category: 'Switches',
           },
         },
       },
@@ -123,7 +132,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'diy kits',
+            category: 'KIY Kits',
           },
         },
       },
