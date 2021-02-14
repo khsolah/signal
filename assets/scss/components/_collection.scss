@@ -1,0 +1,47 @@
+.collection {
+  &__header {
+    position: relative;
+    height: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (min-width: 480px) {
+      height: 50vw;
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 40vw;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      height: 25rem;
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to top, rgba(4,4,4,0.65), rgba(54,54,54,0.2))
+    }
+
+    &--image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &--title {
+      position: relative;
+      color: #fff;
+      z-index: 1;
+    }
+  }
+}
