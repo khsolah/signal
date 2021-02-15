@@ -4,7 +4,7 @@
 
     <section id="content">
       <!-- Featured Products -->
-      <b-container id="featured-product" class="my-3">
+      <b-container id="featured-product" class="my-5">
         <b-row>
           <b-col :cols="12" class="mb-3">
             <h2 align="center">Featured Products</h2>
@@ -19,7 +19,7 @@
             <ProductCard :product="item" />
           </b-col>
 
-          <b-col cols="auto" class="mr-auto ml-auto mb-3 mx-a">
+          <b-col cols="auto" class="mr-auto ml-auto my-4 mx-a">
             <!-- // Todo: use nuxt link -->
             <!-- <nuxt-link></nuxt-link> -->
             <b-button variant="outline-dark">
@@ -30,7 +30,7 @@
       </b-container>
 
       <!-- Categories -->
-      <b-container fluid>
+      <b-container fluid class="my-5">
         <b-row>
           <b-col
             :cols="12"
@@ -39,7 +39,7 @@
             :lg="6"
             v-for="item in Category"
             :key="item.title"
-            class="mb-3"
+            class="mb-4"
           >
             <nuxt-link :to="item.to" class="category__container--home">
               <img :src="item.image" alt="" class="category__image" />
