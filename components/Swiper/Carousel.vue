@@ -233,22 +233,4 @@ export default defineComponent({
     }
   }
 }
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  padding-top: 30px;
-}
-
-.fade-enter-active {
-  transition: opacity .5s, padding-top .5s;
-}
-
-.fade-leave-active {
-  transition: opacity 0s, padding-top 0s;
-}
-
-.fade-enter-to {
-  padding-top: 0;
-}
 </style>

@@ -69,19 +69,4 @@ export default defineComponent({
     }
   }
 }
-
-.fadeup-enter,
-.fadeup-leave-to {
-  transform: translateY(3rem);
-}
-
-.fadeup-enter-active,
-.fadeup-leave-active {
-  transition: transform 0.2s ease-in-out;
-}
-
-.fadeup-enter-to,
-.fadeup-leave {
-  transform: translateY(0);
-}
 </style>
