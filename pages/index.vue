@@ -20,11 +20,11 @@
           </b-col>
 
           <b-col cols="auto" class="mr-auto ml-auto my-4 mx-a">
-            <!-- // Todo: use nuxt link -->
-            <!-- <nuxt-link></nuxt-link> -->
-            <b-button variant="outline-dark">
-              <h3 class="mb-0">VIEW ALL</h3>
-            </b-button>
+            <nuxt-link :to="{ path: '/collections/All'}">
+              <b-button variant="outline-dark">
+                <h3 class="mb-0">VIEW ALL</h3>
+              </b-button>
+            </nuxt-link>
           </b-col>
         </b-row>
       </b-container>
