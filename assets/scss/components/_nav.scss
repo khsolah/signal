@@ -1,0 +1,33 @@
+#sidebar {
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 9vh;
+  background-color: $bg-theme;
+  border-bottom: 1px solid $grey;
+  z-index: 2;
+
+  &__button {
+    color: $light-blue;
+
+    &-group {
+      margin-left: auto;
+    }
+  }
+
+  @media only screen and(max-width: 768px) {
+    &__brand {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+}

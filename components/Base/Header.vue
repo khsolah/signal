@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="dark" class="p-3 nav">
+  <b-navbar toggleable="md" type="light" class="p-3 nav">
     <!-- SideBar -->
     <SideBar id="sidebar" v-show="windowWidth < 768" />
 
@@ -20,7 +20,7 @@
     </b-navbar-nav>
 
     <!-- buttons -->
-    <b-button-group class="mr-0 nav__button-group">
+    <b-button-group class="mr-1 nav__button-group">
       <b-button
         variant="outline"
         class="nav__button"
@@ -31,9 +31,11 @@
       <b-button variant="outline" class="nav__button px-2">
         <b-icon icon="bag"></b-icon>
       </b-button>
-      <b-button variant="outline" class="nav__button px-2">
-        <b-icon icon="person-circle"></b-icon>
-      </b-button>
+      <nuxt-link :to="{ path: '/signin' }">
+        <b-button variant="outline" class="nav__button px-2">
+          <b-icon icon="person-circle"></b-icon>
+        </b-button>
+      </nuxt-link>
     </b-button-group>
   </b-navbar>
 </template>
@@ -123,41 +125,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped lang="scss">
-#sidebar {
-  display: none;
-
-  @media only screen and (max-width: 768px) {
-    display: block;
-  }
-}
-
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 9vh;
-  z-index: 2;
-
-  &__button {
-    color: #fff;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    &-group {
-      margin-left: auto;
-    }
-  }
-
-  @media only screen and(max-width: 768px) {
-    &__brand {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-    }
-  }
-}
-</style>
