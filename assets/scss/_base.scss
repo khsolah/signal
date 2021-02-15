@@ -28,6 +28,10 @@ html {
   }
 }
 
+body {
+  background-color: $bg-theme;
+}
+
 [class~=text-light-grey] {
   color: $light-grey;
 }
@@ -38,6 +42,10 @@ html {
 
 [class~=text-light-blue] {
   color: $light-blue;
+}
+
+[class~=text-grey] {
+  color: $grey;
 }
 
 .show {
