@@ -24,6 +24,7 @@ export default defineComponent({
 <style>
 .default-content {
   padding-top: 9vh;
+  min-height: calc(100vh - 9vh - 20vh);
 }
 
 html {
