@@ -133,6 +133,7 @@ export default defineComponent({
 #registered-form {
   display: block;
   max-width: 400px;
+  width: 75vw;
   margin: 0 auto;
 }
 </style>
