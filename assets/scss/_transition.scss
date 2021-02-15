@@ -1,0 +1,40 @@
+// fadeup
+///////////////////////////////////////////////////////////////
+.fadeup-enter,
+.fadeup-leave-to {
+  transform: translate(0, 0%) !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fadeup-enter-active,
+.fadeup-leave-active {
+  transition: transform .25s ease, opacity .25s ease, visibility .25s ease;
+}
+
+.fadeup-leave,
+.fadeup-enter-to {
+  transform: translate(0, -50%) !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+// fade
+///////////////////////////////////////////////////////////////
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  padding-top: 30px;
+}
+
+.fade-enter-active {
+  transition: opacity .5s, padding-top .5s;
+}
+
+.fade-leave-active {
+  transition: opacity 0s, padding-top 0s;
+}
+
+.fade-enter-to {
+  padding-top: 0;
+}
