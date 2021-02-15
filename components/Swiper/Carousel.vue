@@ -17,7 +17,7 @@
               <h1>{{ banner[realIndex].title }}</h1>
               <h4>{{ banner[realIndex].subtitle }}</h4>
               <b-button class="swiper__cta--btn" variant="primary">
-                <h3>{{ banner[realIndex].ctaText }}</h3>
+                <h4>{{ banner[realIndex].ctaText }}</h4>
               </b-button>
             </div>
           </transition>
