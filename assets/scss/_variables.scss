@@ -12,14 +12,34 @@ $crimson: rgb(224, 38, 75);
 // Contemporary and Bold
 $bg-theme: #e3e2df;
 $grey: #c5c6c7;
+$dark-grey: #1f2833;
 $brown: #edc7b7;
 $light-white: #eee2dc;
-$dark-grey: #1f2833;
 $teal: #45a29e;
 $cyan: #66fcf1;
 $dark-cyan: #116466;
 $red: #ac3b61;
 $pale-red: #edc7b7;
+
+$theme-list: (
+  grey $grey,
+  light-grey $light-grey,
+  dark-grey $dark-grey,
+  brown $brown,
+  light-white $light-white,
+  teal $teal,
+  cyan $cyan,
+  dark-cyan $dark-cyan,
+  red $red,
+  pale-red $pale-red,
+  light-blue $light-blue
+);
+
+@each $key, $value in $theme-list {
+  [class~=text-#{$key}] {
+    color: $value;
+  }
+}
 
 $grid-breakpoints: (
   xs: 0,

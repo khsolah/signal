@@ -32,22 +32,6 @@ body {
   background-color: $bg-theme;
 }
 
-[class~=text-light-grey] {
-  color: $light-grey;
-}
-
-[class~=text-light-pink] {
-  color: $light-pink;
-}
-
-[class~=text-light-blue] {
-  color: $light-blue;
-}
-
-[class~=text-grey] {
-  color: $grey;
-}
-
 .show {
   opacity: 1;
   visibility: visible;
