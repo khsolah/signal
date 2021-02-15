@@ -65,6 +65,8 @@ export default defineComponent({
       case 'DIY Kits':
         background = require('~/assets/images/diy-kits.jpg')
         break
+      default:
+        background = require('~/assets/images/all.jpeg')
       // Todo::
       // handle exception
       // route push to 404 page
