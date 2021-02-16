@@ -3,9 +3,10 @@ export interface IProductAbstract {
   name: string
   subtitle?: string
   price: number
-  image: ImageData
+  image?: ImageData
   hoveredImage?: ImageData
   tag?: string
+  tagVariant?: string
 }
 
 export interface ICategory {
@@ -17,4 +18,9 @@ export interface ICategory {
     query?: Object
     params?: Object
   }
+}
+
+export interface IProduct extends IProductAbstract {
+  description: string
+  buttonText: string
 }
