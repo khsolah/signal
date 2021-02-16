@@ -17,7 +17,7 @@
               <h1>{{ banner[realIndex].title }}</h1>
               <h4>{{ banner[realIndex].subtitle }}</h4>
               <b-button class="swiper__cta--btn" variant="primary">
-                <h4>{{ banner[realIndex].ctaText }}</h4>
+                <h4 class="mb-0">{{ banner[realIndex].ctaText }}</h4>
               </b-button>
             </div>
           </transition>
@@ -137,100 +137,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="scss" scoped>
-.swiper {
-  &__container {
-    position: relative;
-    height: 50vh;
-
-    @media only screen and (min-width: 480px) {
-      height: 55vw;
-    }
-
-    @media only screen and (min-width: 576px) {
-      height: 60vh;
-    }
-
-    @media only screen and (min-width: 768px) {
-      height: 60vh;
-    }
-
-    @media only screen and (min-width: 1200px) {
-      height: 65vh;
-    }
-  }
-
-  &__image {
-    width: 100vw;
-    height: 50vh;
-    object-fit: cover;
-
-    @media only screen and (min-width: 480px) {
-      height: 55vh;
-    }
-
-    @media only screen and (min-width: 576px) {
-      height: 60vh;
-    }
-
-    @media only screen and (min-width: 768px) {
-      height: 60vh;
-    }
-
-    @media only screen and (min-width: 1200px) {
-      height: 65vh;
-    }
-  }
-
-  &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    height: fit-content;
-    color: #fff;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    text-align: center;
-    z-index: 1;
-
-
-    @media only screen and (min-width: 576px) {
-      margin: 1rem auto;
-      top: 73%;
-
-      &--left {
-        left: 2rem;
-        transform: translate(0, -50%);
-      }
-  
-      &--right {
-        left: 75%;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      top: 75%;
-
-      &--right {
-        left: 77%;
-      }
-    }
-
-    @media only screen and (min-width: 996px) {
-      &--right {
-        left: 80%;
-      }
-    }
-
-    @media only screen and (min-width: 1200px) {
-      &--right {
-        left: 85%;
-      }
-    }
-  }
-}
-</style>
