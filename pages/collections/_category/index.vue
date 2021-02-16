@@ -142,6 +142,14 @@ export default defineComponent({
       )
     )
 
+    watch(() => currentPage.value, () => {
+      window.scrollTo({
+        behavior: 'smooth',
+        top: 230,
+        left: 0
+      })
+    })
+
     return {
       top,
       data,
