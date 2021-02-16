@@ -92,16 +92,7 @@ export default defineComponent({
 
     const handleSubmit = () => {}
 
-    // Menu
-    const menu = reactive([
-      { name: 'HOME', to: '/home', active: true },
-      { name: 'PRODUCTS', to: '/products', active: false },
-      { name: 'ABOUT US', to: '/aboutus', active: false },
-      { name: 'FAQ', to: '/shop', active: false },
-      { name: 'SIGN IN', to: 'signin', active: false },
-    ])
-
-    return { email, handleSubmit, menu }
+    return { email, handleSubmit }
   },
   components: {
     BIcon,
