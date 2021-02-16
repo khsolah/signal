@@ -16,7 +16,7 @@
             v-for="item in FeaturedProducts"
             :key="item.id"
           >
-            <ProductCard :product="item" />
+            <ProductCard :product="item" category="featured" />
           </b-col>
 
           <b-col cols="auto" class="mr-auto ml-auto my-4 mx-a">

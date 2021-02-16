@@ -1,31 +1,41 @@
 <template>
-  <b-card
-    :title="product.name"
-    :img-src="product.image"
-    img-alt="Image"
-    img-top
-    border-variant="white"
-    tag="div"
-    class="mb-3 product__card"
-    align="center"
-    @mouseenter="show"
-    @mouseleave="hide"
-  >
-    <h6 class="card-subtitle my-3">${{ product.price }}</h6>
-    <b-button variant="outline-dark" :class="CardBodyClass">ADD TO CART</b-button>
-  </b-card>
+  <div @mouseenter="show" @mouseleave="hide" class="mb-3 product__container">
+    <nuxt-link :to="{ path: `/collections/${$route.params.category || category}/${product.name}` }">
+      <b-card
+        :title="product.name"
+        :img-src="product.image"
+        img-alt="Image"
+        img-top
+        border-variant="white"
+        tag="div"
+        class="mb-3 product__card"
+        align="center"
+      >
+        <h6 class="card-subtitle my-0">${{ product.price }}</h6>
+      </b-card>
+    </nuxt-link>
+    <b-button variant="outline-dark" :class="CardBodyClass"
+      >ADD TO CART</b-button
+    >
+  </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from '@nuxtjs/composition-api'
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'ProductCard',
   props: {
     product: Object,
+    category: String
   },
   setup(prop, { root }) {
-    const CardBodyClass = ref<'fadeup--show'|'fadeup--hide'>('fadeup--hide')
+    const CardBodyClass = ref<'fadeup--show' | 'fadeup--hide'>('fadeup--hide')
     const WindowWidth = computed(() => root.$store.getters.WindowWidth)
     const show = () => {
       if (WindowWidth.value < 997) return
