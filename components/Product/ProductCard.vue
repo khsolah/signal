@@ -14,7 +14,7 @@
         <h6 class="card-subtitle my-0">${{ product.price }}</h6>
       </b-card>
     </nuxt-link>
-    <b-button variant="outline-dark" :class="CardBodyClass"
+    <b-button variant="outline-dark" :class="CardBodyClass" @click="AddToCart"
       >ADD TO CART</b-button
     >
   </div>
@@ -26,7 +26,9 @@ import {
   defineComponent,
   onMounted,
   ref,
+  watch,
 } from '@nuxtjs/composition-api'
+import { ICartProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductCard',
@@ -50,7 +52,21 @@ export default defineComponent({
       if (WindowWidth.value < 997) CardBodyClass.value = 'fadeup--show'
     })
 
-    return { CardBodyClass, show, hide }
+    // add to cart function
+    const AddToCart = () => {
+      if (typeof prop.product !== 'undefined') {
+        root.$store.dispatch('account/AddProductToCart', {
+          name: prop.product.name,
+          price: prop.product.price,
+          amount: 1
+        } as ICartProduct)
+      }
+    }
+
+    const cart = computed(() => root.$store.getters['account/ShowCart'])
+    watch(() => cart.value, () => console.log(cart.value))
+
+    return { CardBodyClass, show, hide, AddToCart }
   },
 })
 </script>
