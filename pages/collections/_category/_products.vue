@@ -42,7 +42,7 @@ export default defineComponent({
       require('@/assets/images/carousel-banner/gmk-rudy.png'),
     ]
 
-    let data = reactive({ product: {} })
+    let data = reactive<{ product: IProduct | {} }>({ product: {} })
 
     onMounted(() => {
       // Todo:: axios to get product data
