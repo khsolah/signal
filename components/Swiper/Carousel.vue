@@ -41,7 +41,7 @@ import {
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import SwiperClass, { SwiperOptions } from 'swiper'
-import IBanner from './IBanner'
+import { IBanner } from '~/common/interface'
 import Footer from '../Base/Footer.vue'
 
 export default defineComponent({
