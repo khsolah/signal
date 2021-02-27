@@ -1,14 +1,14 @@
 import { ActionTree, GetterTree, MutationTree } from "vuex/types/index"
 import { RootState } from "."
 
-import { ICartProduct } from '~/common/interface'
+import { ICartOfProduct } from '~/common/interface'
 
 export const state = () => ({
   id: '',
   name: '',
   token: '',
   legalToken: false,
-  cart: [] as ICartProduct[]
+  cart: [] as ICartOfProduct[]
 })
 
 export type AccountState = ReturnType<typeof state>
@@ -24,7 +24,7 @@ export const getters: GetterTree<AccountState, RootState> = {
 }
 
 export const mutations: MutationTree<AccountState> = {
-  AddProductToCart: (state, payload: ICartProduct) => {
+  AddProductToCart: (state, payload: ICartOfProduct) => {
     const index = state.cart.findIndex(el => el.name === payload.name)
     if (index !== -1) {
       state.cart[index].amount++
@@ -38,7 +38,7 @@ export const mutations: MutationTree<AccountState> = {
 }
 
 export const actions: ActionTree<AccountState, RootState> = {
-  AddProductToCart: ({ commit }, payload: ICartProduct) => {
+  AddProductToCart: ({ commit }, payload: ICartOfProduct) => {
     commit('AddProductToCart', payload)
   },
   RemoveProductFromCart: ({ commit }, name: string) => {
