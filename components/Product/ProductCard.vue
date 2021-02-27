@@ -28,7 +28,7 @@ import {
   ref,
   watch,
 } from '@nuxtjs/composition-api'
-import { ICartProduct } from '~/common/interface'
+import { ICartOfProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductCard',
@@ -59,7 +59,7 @@ export default defineComponent({
           name: prop.product.name,
           price: prop.product.price,
           amount: 1
-        } as ICartProduct)
+        } as ICartOfProduct)
       }
     }
 
