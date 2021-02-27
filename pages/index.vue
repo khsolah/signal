@@ -62,6 +62,15 @@ import { defineComponent, reactive } from '@nuxtjs/composition-api'
 import { ICategory, IProductAbstract } from '~/components/Product/IProduct'
 
 export default defineComponent({
+  async asyncData(context) {
+    await context.$axios.get('/api').then(response => {
+      console.log(response.data)
+    }).catch(error => {
+      console.error(error)
+    })
+
+    console.log('async data')
+  },
   setup(prop, { root }) {
     interface IEntrance {
       name: string
