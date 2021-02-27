@@ -53,6 +53,10 @@ export default {
     bootstrapVueCSS: false
   },
 
+  serverMiddleware :[
+    { path: '/api', handle: '~server/app.ts' }
+  ],
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
