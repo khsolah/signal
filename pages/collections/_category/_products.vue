@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from '@nuxtjs/composition-api'
-import { IProduct } from '~/components/Product/IProduct'
+import { IProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductPage',

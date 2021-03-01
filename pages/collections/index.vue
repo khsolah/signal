@@ -29,7 +29,7 @@ import {
   reactive,
   watch,
 } from '@nuxtjs/composition-api'
-import { IProductAbstract } from '~/components/Product/IProduct'
+import { IProductAbstract } from '~/common/interface'
 
 interface topData {
   title?: string
