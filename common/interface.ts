@@ -12,7 +12,7 @@ export interface IProductAbstract {
   name: string
   subtitle?: string
   price: number
-  image?: ImageData
+  image?: ImageData|string
   hoveredImage?: ImageData
   tag?: string
   tagVariant?: string
