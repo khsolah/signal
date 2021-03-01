@@ -13,7 +13,7 @@
           <b-col
             :cols="6"
             :md="3"
-            v-for="item in FeaturedProducts"
+            v-for="item in asyncData.FeaturedProducts"
             :key="item.id"
           >
             <ProductCard :product="item" category="featured" />
@@ -58,51 +58,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from '@nuxtjs/composition-api'
-import { ICategory, IProductAbstract } from '~/components/Product/IProduct'
+import { defineComponent, reactive, ref } from '@nuxtjs/composition-api'
+import { ICategory, IProductAbstract } from '~/common/interface'
 
 export default defineComponent({
   async asyncData(context) {
-    await context.$axios.get('/api').then(response => {
-      console.log(response.data)
-    }).catch(error => {
-      console.error(error)
-    })
+    const asyncData = reactive<{FeaturedProducts: IProductAbstract[]}>({FeaturedProducts: []})
+    const response = await context.$axios.get('http://localhost:4000/api/home')
+    asyncData.FeaturedProducts = response.data.featuredProducts
 
-    console.log('async data')
+    return {
+      asyncData
+    }
   },
   setup(prop, { root }) {
     interface IEntrance {
       name: string
       image: string
     }
-
-    const FeaturedProducts = reactive<IProductAbstract[]>([
-      {
-        id: 'gmk-dots',
-        name: 'GMK Dots',
-        price: 160,
-        image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
-      },
-      {
-        id: 'gmk-posh',
-        name: 'GMK Posh',
-        price: 158,
-        image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
-      },
-      {
-        id: 'gmk-amethyst',
-        name: 'GMK Amethyst',
-        price: 165,
-        image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
-      },
-      {
-        id: 'gmk-rainy-day',
-        name: 'GMK Rainy Day',
-        price: 159,
-        image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
-      },
-    ])
 
     const Category = reactive<ICategory[]>([
       {
@@ -148,7 +121,6 @@ export default defineComponent({
     ])
 
     return {
-      FeaturedProducts,
       Category,
     }
   },
