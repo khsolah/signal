@@ -55,7 +55,7 @@ import {
   BIconPersonCircle,
   BIconList,
 } from 'bootstrap-vue'
-import { ICategory } from '../Product/IProduct'
+import { ICategory } from '~/common/interface'
 import SideBar from '@/components/Base/sidebar.vue'
 
 export default defineComponent({
