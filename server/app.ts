@@ -7,9 +7,7 @@ const app = express()
 import routes from './routes/index'
 
 app.use(bodyParser.json())
-app.use(cors)
-
-// app.use(product)
+app.use(cors())
 
 app.use('/api', routes)
 app.listen(4000, () => {
