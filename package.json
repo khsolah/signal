@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "serve": "ts-node --project tsconfig.server.json server/app.ts",
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
@@ -12,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxt/typescript-runtime": "^2.0.2",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/composition-api": "^0.18.1",
     "@nuxtjs/style-resources": "^1.0.0",
@@ -33,7 +34,6 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.13.9",
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
