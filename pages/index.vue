@@ -46,7 +46,7 @@
               <header class="category__header">
                 <h1 class="category__title mb-4">{{ item.title }}</h1>
                 <b-button variant="outline-light">
-                  <h3>VIEW PRODUCTS</h3>
+                  <h3 class="m-0">VIEW PRODUCTS</h3>
                 </b-button>
               </header>
             </nuxt-link>
