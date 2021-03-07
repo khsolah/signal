@@ -37,47 +37,26 @@ interface topData {
 }
 export default defineComponent({
   name: 'Collections',
+  async asyncData(context) {
+    const data = reactive<{ products: IProductAbstract[] }>({
+      products: [],
+    })
+
+    const response = await context.$axios.get('http://localhost:4000/api/product')
+    data.products = response.data
+
+    return {
+      data
+    }
+  },
   setup(prop, { root }) {
     const top = reactive<topData>({
       title: 'Collections',
       background: require('~/assets/images/mechanical-keyboard.jpg'),
     })
-    const data = reactive<{ products: IProductAbstract[] }>({
-      products: [],
-    })
-
-    onMounted(() => {
-      data.products = [
-        {
-          id: 'gmk-dots',
-          name: 'GMK Dots',
-          price: 160,
-          image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
-        },
-        {
-          id: 'gmk-posh',
-          name: 'GMK Posh',
-          price: 158,
-          image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
-        },
-        {
-          id: 'gmk-amethyst',
-          name: 'GMK Amethyst',
-          price: 165,
-          image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
-        },
-        {
-          id: 'gmk-rainy-day',
-          name: 'GMK Rainy Day',
-          price: 159,
-          image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
-        },
-      ]
-    })
 
     return {
       top,
-      data,
     }
   },
 })
