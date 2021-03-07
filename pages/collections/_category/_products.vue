@@ -34,21 +34,20 @@ import { IProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductPage',
-  async asyncData(context) {
-    // console.log(context)
-    const route = context.route.params
-    const data = reactive<{ product: IProduct | {} }>({ product: {} })
-    const response = await context.$axios.get(
-      `https://khsolah.xyz:4000/api/product?category=${route.category}&product=${route.products}`
-    )
+  // async asyncData(context) {
+  //   const route = context.route.params
+  //   const data = reactive<{ product: IProduct | {} }>({ product: {} })
+  //   const response = await context.$axios.get(
+  //     `https://khsolah.xyz:4000/api/product?category=${route.category}&product=${route.products}`
+  //   )
 
-    data.product = response.data
-    console.log(response.data)
+  //   data.product = response.data
+  //   console.log(response.data)
 
-    return {
-      data,
-    }
-  },
+  //   return {
+  //     data,
+  //   }
+  // },
   setup(prop, { root }) {
     const buy = () => {
       console.log(buy)

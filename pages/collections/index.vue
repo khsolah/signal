@@ -42,10 +42,10 @@ export default defineComponent({
       products: [],
     })
 
-    const response = await context.$axios.get(
-      'https://khsolah.xyz:4000/api/product'
-    )
-    data.products = response.data
+    // const response = await context.$axios.get(
+    //   'https://khsolah.xyz:4000/api/product'
+    // )
+    // data.products = response.data
 
     return {
       data,
