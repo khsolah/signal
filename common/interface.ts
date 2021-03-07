@@ -1,10 +1,11 @@
 export interface IBanner {
-  name: string;
-  image: ImageData;
-  buttonPosition: 'left' | 'right';
-  title: string;
-  subtitle: string;
-  ctaText: string;
+  name: string
+  category: string
+  image: ImageData
+  buttonPosition: 'left' | 'right'
+  title: string
+  subtitle: string
+  ctaText: string
 }
 
 export interface IProductAbstract {
@@ -12,7 +13,7 @@ export interface IProductAbstract {
   name: string
   subtitle?: string
   price: number
-  image?: ImageData|string
+  image?: ImageData | string
   hoveredImage?: ImageData
   tag?: string
   tagVariant?: string
