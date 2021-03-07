@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "ts-node --project tsconfig.server.json server/app.ts",
+    "compile": "babel server/app.ts -d api",
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
@@ -34,7 +35,9 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.0",
     "@babel/preset-env": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
