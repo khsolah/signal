@@ -42,7 +42,6 @@ import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import SwiperClass, { SwiperOptions } from 'swiper'
 import { IBanner } from '~/common/interface'
-import Footer from '../Base/Footer.vue'
 
 export default defineComponent({
   name: 'Carousel',
@@ -66,8 +65,8 @@ export default defineComponent({
     const banner: IBanner[] = [
       {
         name: 'GMK Dots',
-        category: 'Switches',
-        image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
+        category: 'Keycaps',
+        image: '/images/carousel-banner/gmk-dots.jpg',
         buttonPosition: 'left',
         title: 'GMK Dots',
         subtitle: 'Most popular keycaps set ever',
@@ -75,8 +74,8 @@ export default defineComponent({
       },
       {
         name: 'GMK Posh',
-        category: 'Switches',
-        image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
+        category: 'Keycaps',
+        image: '/images/carousel-banner/gmk-posh.jpg',
         buttonPosition: 'left',
         title: 'GMK Posh',
         subtitle: 'Pre-orders for extra stock live now!',
@@ -84,8 +83,8 @@ export default defineComponent({
       },
       {
         name: 'GMK Amethyst',
-        category: 'Switches',
-        image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
+        category: 'Keycaps',
+        image: '/images/carousel-banner/gmk-amethyst.png',
         buttonPosition: 'right',
         title: 'GMK Amethyst',
         subtitle: 'Shipping now!',
@@ -93,8 +92,8 @@ export default defineComponent({
       },
       {
         name: 'GMK Rainy Day',
-        category: 'Switches',
-        image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
+        category: 'Keycaps',
+        image: '/images/carousel-banner/gmk-rainyday.png',
         buttonPosition: 'left',
         title: 'GMK Rainy Day',
         subtitle: 'Last chance to get it',

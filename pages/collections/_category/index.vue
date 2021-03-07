@@ -12,16 +12,16 @@
         <b-col
           :cols="6"
           :md="3"
-          v-for="product in ProductsList"
-          :key="product.id"
+          v-for="item in ProductsList.value"
+          :key="item.id"
         >
-          <ProductCard :product="product" />
+          <ProductCard :product="item" />
         </b-col>
       </b-row>
       <b-row>
         <b-col cols="auto mx-auto my-4">
           <b-pagination
-            v-model="currentPage"
+            v-model="currentPage.value"
             :total-rows="data.products.length"
             :per-page="perPage"
             aria-controls="products-list"
@@ -36,7 +36,6 @@
 import {
   computed,
   defineComponent,
-  onMounted,
   reactive,
   ref,
   watch,
@@ -50,6 +49,44 @@ interface topData {
 
 export default defineComponent({
   name: 'Collections',
+  async asyncData(context) {
+    console.log(context.route.params)
+    const data = reactive<{ products: IProductAbstract[] }>({ products: [] })
+    const response = await context.$axios.get(
+      `http://localhost:4000/api/product?category=${context.route.params.category}`
+    )
+
+    data.products = response.data
+
+    const currentPage = ref<number>(1)
+    const perPage = 4
+
+    const ProductsList = computed(() =>
+      data.products.slice(
+        (currentPage.value - 1) * perPage,
+        currentPage.value * perPage
+      )
+    )
+
+    console.log('productslist::', ProductsList.value)
+    watch(
+      () => currentPage.value,
+      () => {
+        window.scrollTo({
+          behavior: 'smooth',
+          top: 230,
+          left: 0,
+        })
+      }
+    )
+
+    return {
+      data,
+      currentPage,
+      perPage,
+      ProductsList,
+    }
+  },
   setup(prop, { root }) {
     let background!: ImageData
     switch (root.$route.params.category) {
@@ -79,83 +116,8 @@ export default defineComponent({
       products: [],
     })
 
-    const currentPage = ref<number>(1)
-    // Todo:: modify perPage to 12
-    const perPage = 4
-
-    onMounted(() => {
-      data.products = [
-        {
-          id: 'gmk-dots',
-          name: 'GMK Dots',
-          price: 160,
-          image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
-        },
-        {
-          id: 'gmk-posh',
-          name: 'GMK Posh',
-          price: 158,
-          image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
-        },
-        {
-          id: 'gmk-amethyst',
-          name: 'GMK Amethyst',
-          price: 165,
-          image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
-        },
-        {
-          id: 'gmk-rainy-day',
-          name: 'GMK Rainy Day',
-          price: 159,
-          image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
-        },
-        {
-          id: 'gmk-pos-2',
-          name: 'GMK Posh',
-          price: 158,
-          image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
-        },
-        {
-          id: 'gmk-dots-2',
-          name: 'GMK Dots',
-          price: 160,
-          image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
-        },
-        {
-          id: 'gmk-rainy-day-2',
-          name: 'GMK Rainy Day',
-          price: 159,
-          image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
-        },
-        {
-          id: 'gmk-amethyst-2',
-          name: 'GMK Amethyst',
-          price: 165,
-          image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
-        },
-      ]
-    })
-    const ProductsList = computed(() =>
-      data.products.slice(
-        (currentPage.value - 1) * perPage,
-        currentPage.value * perPage
-      )
-    )
-
-    watch(() => currentPage.value, () => {
-      window.scrollTo({
-        behavior: 'smooth',
-        top: 230,
-        left: 0
-      })
-    })
-
     return {
       top,
-      data,
-      ProductsList,
-      currentPage,
-      perPage,
     }
   },
 })

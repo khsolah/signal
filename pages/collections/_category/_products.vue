@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ProductCarousel :product="ProductCarousel" />
+    <ProductCarousel :product="data.product.images" />
 
     <section id="product-description" class="mx-auto my-5">
       <header class="description__header pb-5 my-3">
@@ -34,52 +34,27 @@ import { IProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductPage',
+  async asyncData(context) {
+    // console.log(context)
+    const route = context.route.params
+    const data = reactive<{ product: IProduct | {} }>({ product: {} })
+    const response = await context.$axios.get(
+      `http://localhost:4000/api/product?category=${route.category}&product=${route.products}`
+    )
+
+    data.product = response.data
+    console.log(response.data)
+
+    return {
+      data
+    }
+  },
   setup(prop, { root }) {
-    const ProductCarousel: ImageData[] = [
-      require('@/assets/images/carousel-banner/gmk-amethyst.png'),
-      require('@/assets/images/carousel-banner/gmk-dots.jpg'),
-      require('@/assets/images/carousel-banner/gmk-posh.jpg'),
-      require('@/assets/images/carousel-banner/gmk-rudy.png'),
-    ]
-
-    let data = reactive<{ product: IProduct | {} }>({ product: {} })
-
-    onMounted(() => {
-      // Todo:: axios to get product data
-      data.product = {
-        id: '1',
-        name: root.$route.params.products,
-        price: 160,
-        tag: 'group buy',
-        tagVariant: 'warning',
-        description: `<h2>THIS IS A GROUPBUY</h2>
-          <h6>
-            <b>
-              Groupbuy will run from December 6th - December 31th 2020. <br>
-              The approximate shipping time is around Q4 2021.<br>
-              Keycap Set Designed by Omnitype
-            </b>
-          </h6>
-          <h2>Details</h2>
-          <ul>
-            <li>Designed by Plop</li>
-            <li>Produced by ePBT</li>
-            <li>PBT Dyesub</li>
-            <li>Deskmats: stitched edge, 900x400 mm, 3mm thick</li>
-            <li>THOK Novelty: Aluminum, R1 profile, 2 color resin infill.</li>
-          </ul>
-          <p>The images shown are renders of the product and are only used to estimate the final product. The end product may vary in color from the renders as they are not guaranteed to be 100% accurate to the end product. By purchasing this product, you are agreeing to the above terms.</p>`,
-        buttonText: 'Join Group Buy',
-      }
-    })
-
     const buy = () => {
       console.log(buy)
     }
 
     return {
-      ProductCarousel,
-      data,
       buy,
     }
   },
