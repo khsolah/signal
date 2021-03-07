@@ -31,7 +31,7 @@ const get = (): Promise<Home> => {
         },
         {
           id: '4',
-          name: 'Zealios V2 Switches (Tactile)',
+          name: 'Zealios V2',
           price: 10,
           images: [
             '/images/switches/zealios/zealios-1.webp',
