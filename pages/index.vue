@@ -66,10 +66,10 @@ export default defineComponent({
     const asyncData = reactive<{ FeaturedProducts: IProductAbstract[] }>({
       FeaturedProducts: [],
     })
-    // const response = await context.$axios.get(
-    //   'https://khsolah.xyz:4000/api/home'
-    // )
-    // asyncData.FeaturedProducts = response.data.featuredProducts
+    const response = await context.$axios.get(
+      '/api/home'
+    )
+    asyncData.FeaturedProducts = response.data.featuredProducts
 
     return {
       asyncData,

@@ -52,11 +52,11 @@ export default defineComponent({
   async asyncData(context) {
     console.log(context.route.params)
     const data = reactive<{ products: IProductAbstract[] }>({ products: [] })
-    // const response = await context.$axios.get(
-    //   `https://khsolah.xyz:4000/api/product?category=${context.route.params.category}`
-    // )
+    const response = await context.$axios.get(
+      `/api/product?category=${context.route.params.category}`
+    )
 
-    // data.products = response.data
+    data.products = response.data
 
     const currentPage = ref<number>(1)
     const perPage = 4

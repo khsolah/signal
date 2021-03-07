@@ -9,7 +9,7 @@ import routes from './routes/index'
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/api', routes)
+app.use('/', routes)
 app.listen(4000, () => {
   console.log('port 4000')
 })
