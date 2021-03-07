@@ -369,6 +369,8 @@ const get = (
         case 'featured':
           result = featuredList.filter(element => element.name === product)
           break
+        default:
+          result = [...keyboardsList, ...keycapsList, ...switchesList, ...diyList].filter(element => element.name === product)
       }
 
       if (result.length === 0) {

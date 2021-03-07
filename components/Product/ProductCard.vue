@@ -1,6 +1,6 @@
 <template>
   <div @mouseenter="show" @mouseleave="hide" class="mb-3 product__container">
-    <nuxt-link :to="{ path: `/collections/${$route.params.category || category}/${product.name}` }">
+    <nuxt-link :to="{ path: `/collections/${$route.params.category || 'All'}/${product.name}` }">
       <b-card
         :title="product.name"
         :img-src="product.images[0]"
