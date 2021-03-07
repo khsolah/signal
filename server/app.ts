@@ -9,7 +9,7 @@ const app = express()
 
 const corsOptions: CorsOptions = {
   origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 }
 
 app.use(bodyParser.json())
