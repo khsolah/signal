@@ -16,7 +16,7 @@
             <div :class="ctaClass" v-show="fadeIn && index === realIndex">
               <h1>{{ banner[realIndex].title }}</h1>
               <h4>{{ banner[realIndex].subtitle }}</h4>
-              <b-button class="swiper__cta--btn" variant="primary">
+              <b-button :href="`/collections/${banner[realIndex].category}/${banner[realIndex].name}`" class="swiper__cta--btn py-2" variant="primary">
                 <h4 class="mb-0">{{ banner[realIndex].ctaText }}</h4>
               </b-button>
             </div>
@@ -66,6 +66,7 @@ export default defineComponent({
     const banner: IBanner[] = [
       {
         name: 'GMK Dots',
+        category: 'Switches',
         image: require('~/assets/images/carousel-banner/gmk-dots.jpg'),
         buttonPosition: 'left',
         title: 'GMK Dots',
@@ -74,6 +75,7 @@ export default defineComponent({
       },
       {
         name: 'GMK Posh',
+        category: 'Switches',
         image: require('~/assets/images/carousel-banner/gmk-posh.jpg'),
         buttonPosition: 'left',
         title: 'GMK Posh',
@@ -82,6 +84,7 @@ export default defineComponent({
       },
       {
         name: 'GMK Amethyst',
+        category: 'Switches',
         image: require('~/assets/images/carousel-banner/gmk-amethyst.png'),
         buttonPosition: 'right',
         title: 'GMK Amethyst',
@@ -90,6 +93,7 @@ export default defineComponent({
       },
       {
         name: 'GMK Rainy Day',
+        category: 'Switches',
         image: require('~/assets/images/carousel-banner/gmk-rainyday.png'),
         buttonPosition: 'left',
         title: 'GMK Rainy Day',
