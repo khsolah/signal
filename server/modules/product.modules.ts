@@ -1,4 +1,4 @@
-import { IProduct, IProductAbstract } from '../../common/interface'
+import { IProduct, IProductAbstract } from '../common/interface'
 
 const keycapsList: IProduct[] = [
   {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { IProduct, IProductAbstract } from '../../common/interface'
+import { IProduct, IProductAbstract } from '../common/interface'
 import modules from '../modules/product.modules'
 
 const get = (req: Request, res: Response) => {
