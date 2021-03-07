@@ -193,7 +193,7 @@ const diyList: IProduct[] = [
 const keyboardsList: IProduct[] = [
   {
     id: '6',
-    name: 'KBD67 Keyboard',
+    name: 'KBD67',
     price: 390,
     images: [
       '/images/keyboards/kbd67/kbd67-1.webp',
