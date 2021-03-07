@@ -42,11 +42,13 @@ export default defineComponent({
       products: [],
     })
 
-    const response = await context.$axios.get('http://localhost:4000/api/product')
+    const response = await context.$axios.get(
+      'https://khsolah.xyz:4000/api/product'
+    )
     data.products = response.data
 
     return {
-      data
+      data,
     }
   },
   setup(prop, { root }) {

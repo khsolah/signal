@@ -39,14 +39,14 @@ export default defineComponent({
     const route = context.route.params
     const data = reactive<{ product: IProduct | {} }>({ product: {} })
     const response = await context.$axios.get(
-      `http://localhost:4000/api/product?category=${route.category}&product=${route.products}`
+      `https://khsolah.xyz:4000/api/product?category=${route.category}&product=${route.products}`
     )
 
     data.product = response.data
     console.log(response.data)
 
     return {
-      data
+      data,
     }
   },
   setup(prop, { root }) {

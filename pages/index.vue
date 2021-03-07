@@ -20,7 +20,7 @@
           </b-col>
 
           <b-col cols="auto" class="mr-auto ml-auto my-4 mx-a">
-            <nuxt-link :to="{ path: '/collections/All'}">
+            <nuxt-link :to="{ path: '/collections/All' }">
               <b-button variant="outline-dark">
                 <h3 class="mb-0">VIEW ALL</h3>
               </b-button>
@@ -63,12 +63,16 @@ import { ICategory, IProductAbstract } from '~/common/interface'
 
 export default defineComponent({
   async asyncData(context) {
-    const asyncData = reactive<{FeaturedProducts: IProductAbstract[]}>({FeaturedProducts: []})
-    const response = await context.$axios.get('http://localhost:4000/api/home')
+    const asyncData = reactive<{ FeaturedProducts: IProductAbstract[] }>({
+      FeaturedProducts: [],
+    })
+    const response = await context.$axios.get(
+      'https://khsolah.xyz:4000/api/home'
+    )
     asyncData.FeaturedProducts = response.data.featuredProducts
 
     return {
-      asyncData
+      asyncData,
     }
   },
   setup(prop, { root }) {
@@ -84,7 +88,7 @@ export default defineComponent({
         to: {
           path: '/collections',
           query: {
-            category: 'Keyboards'
+            category: 'Keyboards',
           },
         },
       },
