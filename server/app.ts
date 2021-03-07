@@ -1,15 +1,19 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import cors from 'cors'
+import cors, { CorsOptions } from 'cors'
 import compression from 'compression'
 import helmet from 'helmet'
+import routes from './routes/index'
 
 const app = express()
 
-import routes from './routes/index'
+const corsOptions: CorsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS']
+}
 
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(compression())
 app.use(helmet())
 
