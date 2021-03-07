@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { Home } from '../common/interface'
-import modules from '../modules/index.modules'
+import modules from '../modules/home.modules'
 
 const get = (req: Request, res: Response):void => {
   modules.get().then((response: Home) => {
