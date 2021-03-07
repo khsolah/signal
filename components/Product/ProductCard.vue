@@ -3,7 +3,7 @@
     <nuxt-link :to="{ path: `/collections/${$route.params.category || category}/${product.name}` }">
       <b-card
         :title="product.name"
-        :img-src="product.image"
+        :img-src="product.images[0]"
         img-alt="Image"
         img-top
         border-variant="white"
