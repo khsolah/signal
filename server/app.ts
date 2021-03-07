@@ -10,9 +10,9 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.use('/', routes)
-app.listen(4000, () => {
-  console.log('port 4000')
-})
+// app.listen(4000, () => {
+//   console.log('port 4000')
+// })
 
 
 module.exports = app
