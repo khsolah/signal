@@ -53,7 +53,7 @@ export default defineComponent({
     console.log(context.route.params)
     const data = reactive<{ products: IProductAbstract[] }>({ products: [] })
     const response = await context.$axios.get(
-      `/api/product?category=${context.route.params.category}`
+      `https://khsolah.xyz/api/product?category=${context.route.params.category}`
     )
 
     data.products = response.data

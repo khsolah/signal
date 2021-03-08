@@ -67,7 +67,7 @@ export default defineComponent({
       FeaturedProducts: [],
     })
     const response = await context.$axios.get(
-      '/api/home'
+      'https://khsolah.xyz/api/home'
     )
     asyncData.FeaturedProducts = response.data.featuredProducts
 
