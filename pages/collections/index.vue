@@ -42,7 +42,7 @@ export default defineComponent({
       products: [],
     })
 
-    const response = await context.$axios.get('/api/product', { withCredentials: true })
+    const response = await context.$axios.get('https://khsolah.xyz/api/product', { withCredentials: true })
     data.products = response.data
 
     return {
