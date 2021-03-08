@@ -53,7 +53,10 @@ export default defineComponent({
     console.log(context.route.params)
     const data = reactive<{ products: IProductAbstract[] }>({ products: [] })
     const response = await context.$axios.get(
-      `/api/product?category=${context.route.params.category}`
+      `/api/product?category=${context.route.params.category}`,
+      {
+        withCredentials: true
+      }
     )
 
     data.products = response.data
