@@ -8,7 +8,7 @@ import routes from './routes/index'
 const app = express()
 
 const corsOptions: CorsOptions = {
-  origin: '*',
+  origin: 'https://khsolah.xyz',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true
 }
