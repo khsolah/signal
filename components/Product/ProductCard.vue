@@ -55,15 +55,16 @@ export default defineComponent({
     // add to cart function
     const AddToCart = () => {
       if (typeof prop.product !== 'undefined') {
-        root.$store.dispatch('account/AddProductToCart', {
+        root.$store.dispatch('cart/AddProductToCart', {
           name: prop.product.name,
           price: prop.product.price,
+          image: prop.product.images[0],
           amount: 1
         } as ICartOfProduct)
       }
     }
 
-    const cart = computed(() => root.$store.getters['account/ShowCart'])
+    const cart = computed(() => root.$store.getters['cart/getCart'])
     watch(() => cart.value, () => console.log(cart.value))
 
     return { CardBodyClass, show, hide, AddToCart }
