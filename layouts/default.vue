@@ -3,6 +3,7 @@
     <Header />
     <Nuxt class="default-content" />
     <Footer />
+    <Cart />
   </div>
 </template>
 
