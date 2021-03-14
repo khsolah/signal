@@ -21,8 +21,8 @@
         class="my-5 description__content"
       ></div>
 
-      <button block class="form__button product__button">
-        <h4 class="mb-0" @click.prevent="buy">{{ data.product.buttonText }}</h4>
+      <button block class="form__button product__button" @click="addProductToCart(data.product)">
+        <h4 class="mb-0">{{ data.product.buttonText }}</h4>
       </button>
     </section>
   </main>
@@ -30,13 +30,13 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from '@nuxtjs/composition-api'
-import { IProduct } from '~/common/interface'
+import { ICartOfProduct, IProduct } from '~/common/interface'
 
 export default defineComponent({
   name: 'ProductPage',
   async asyncData(context) {
     const route = context.route.params
-    const data = reactive<{ product: IProduct | {} }>({ product: {} })
+    const data = reactive<{ product?: IProduct }>({ product: undefined })
     const response = await context.$axios.get(
       `https://khsolah.xyz/api/product?category=${route.category}&product=${route.products}`,
       {
@@ -45,7 +45,6 @@ export default defineComponent({
     )
 
     data.product = response.data
-    console.log(response.data)
 
     return {
       data,
@@ -56,8 +55,18 @@ export default defineComponent({
       console.log(buy)
     }
 
+    const addProductToCart = (product: IProduct) => {
+      root.$store.dispatch('cart/AddProductToCart', {
+          name: product.name,
+          price: product.price,
+          image: product.images[0],
+          amount: 1
+        } as ICartOfProduct)
+    }
+
     return {
       buy,
+      addProductToCart
     }
   },
 })
