@@ -19,23 +19,23 @@ const get = (): Promise<Home> => {
           tagVariant: 'warning',
         },
         {
-          id: '3',
-          name: 'GMK Amethyst',
-          price: 160,
-          images: [
-            '/images/keycaps/amethyst/amethyst-1.jpg',
-            '/images/keycaps/amethyst/amethyst-2.jpg',
-          ],
-          tag: 'group buy',
-          tagVariant: 'warning',
-        },
-        {
           id: '4',
           name: 'Zealios V2',
           price: 10,
           images: [
             '/images/switches/zealios/zealios-1.webp',
             '/images/switches/zealios/zealios-2.webp',
+          ],
+          tag: 'group buy',
+          tagVariant: 'warning',
+        },
+        {
+          id: '3',
+          name: 'GMK Amethyst',
+          price: 160,
+          images: [
+            '/images/keycaps/amethyst/amethyst-1.jpg',
+            '/images/keycaps/amethyst/amethyst-2.jpg',
           ],
           tag: 'group buy',
           tagVariant: 'warning',
