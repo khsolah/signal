@@ -1,5 +1,5 @@
 <template>
-  <article id="collection">
+  <main id="collection">
     <!-- <SideMenu /> -->
     <header id="collection-header" class="collection__header mb-5">
       <img :src="top.background" alt="" class="collection__header--image" />
@@ -19,7 +19,7 @@
         </b-col>
       </b-row>
     </b-container>
-  </article>
+  </main>
 </template>
 
 <script lang="ts">
