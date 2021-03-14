@@ -29,7 +29,7 @@
         <b-icon icon="search"></b-icon>
       </b-button>
       <b-button variant="outline" class="nav__button px-2">
-        <b-icon icon="bag"></b-icon>
+        <b-icon :icon="cartIcon"></b-icon>
       </b-button>
       <nuxt-link :to="{ path: '/signin' }">
         <b-button variant="outline" class="nav__button px-2">
@@ -42,16 +42,19 @@
 
 <script lang="ts">
 import {
+  computed,
   defineComponent,
   onMounted,
   onUnmounted,
   reactive,
   ref,
+  watch,
 } from '@nuxtjs/composition-api'
 import {
   BIcon,
   BIconSearch,
   BIconBag,
+  BIconBagPlusFill,
   BIconPersonCircle,
   BIconList,
 } from 'bootstrap-vue'
@@ -68,11 +71,21 @@ export default defineComponent({
     BIconList,
     SideBar,
   },
-  setup() {
+  setup(prop, { root }) {
     const windowWidth = ref(768)
     const onWindowWidthChange = () => {
       windowWidth.value = window.innerWidth
     }
+
+    const cartStatus = computed<number>(() => root.$store.getters['cart/cartStatus'])
+
+    const cartIcon = ref<'bag' | 'bag-plus-fill'>('bag')
+    watch(
+      () => cartStatus.value,
+      () => {
+        cartIcon.value = cartStatus.value === 0 ? 'bag' : 'bag-plus-fill'
+      }
+    )
 
     if (process.client) {
       onMounted(() => {
@@ -119,6 +132,7 @@ export default defineComponent({
     ])
 
     return {
+      cartIcon,
       windowWidth,
       list,
     }
