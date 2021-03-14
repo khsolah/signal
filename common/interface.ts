@@ -13,7 +13,7 @@ export interface IProductAbstract {
   name: string
   subtitle?: string
   price: number,
-  images?: ImageData[] | string[]
+  images: string[]
   hoveredImage?: ImageData
   tag?: string
   tagVariant?: string
@@ -38,5 +38,6 @@ export interface IProduct extends IProductAbstract {
 export interface ICartOfProduct {
   name: string
   price: number
+  image: string
   amount: number
 }

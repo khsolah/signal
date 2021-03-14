@@ -3,7 +3,7 @@ export interface IProductAbstract {
   name: string
   subtitle?: string
   price: number,
-  images?: ImageData[] | string[]
+  images: string[]
   hoveredImage?: ImageData
   tag?: string
   tagVariant?: string
