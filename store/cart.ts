@@ -27,6 +27,9 @@ export const mutations: MutationTree<CartState> = {
   },
   RemoveProductFromCart: (state, name: string):void => {
     state.cart.splice(state.cart.findIndex(el => el.name === name), 1)
+  },
+  UpdateProductFromCart: (state, { index, quantity }: { index: number, quantity: number }): void => {
+    state.cart[index].amount = quantity
   }
 }
 
@@ -37,4 +40,7 @@ export const actions: ActionTree<CartState, RootState> = {
   RemoveProductFromCart: ({ commit }, name: string) => {
     commit('RemoveProductFromCart', name)
   },
+  UpdateProductFromCart: ({ commit }, { index, quantity }: { index: number, quantity: number }) => {
+    commit('UpdateProductFromCart', { index, quantity })
+  }
 }
