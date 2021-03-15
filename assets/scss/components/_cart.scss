@@ -57,10 +57,11 @@
 
   &__item {
     display: flex;
+    align-items: center;
 
     &--image {
-      width: 12vw;
-      height: 8vw;
+      width: 10vw;
+      height: 6vw;
       object-fit: cover;
     }
 
@@ -80,6 +81,10 @@
 
     &--price {
 
+    }
+
+    &--select {
+      width: auto;
     }
   }
 }
